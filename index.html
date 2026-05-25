@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Étudiant BUT GEII</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+
+      <a href="index.html" class="logo">MonPortfolio</a>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="skills.html">Compétences</a></li>
+        <li><a href="projects.html">Projets</a></li>
+        <li><a href="interests.html">Centres d'intérêt</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="hero-text">
+          <p class="subtitle">Étudiant BUT GEII</p>
+
+          <h1>Adam Ibrhountane</h1>
+
+          <p class="tagline">
+            Étudiant passionné par l’électronique, l’informatique
+            et les systèmes embarqués.
+          </p>
+
+          <div class="hero-cta">
+            <a href="projects.html" class="btn btn-primary">
+              Voir mes projets
+            </a>
+
+            <a href="contact.html" class="btn btn-outline">
+              Me contacter
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="avatar-placeholder">👤</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Compétences clés -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Compétences clés</h2>
+        <p>Les compétences que je développe au cours de ma formation BUT GEII</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <a href="concevoir.html" class="card skill-card">
+          <div class="skill-icon">🔧</div>
+          <h3>Concevoir</h3>
+          <p>Concevoir des systèmes électroniques et informatiques industriels</p>
+        </a>
+
+        <a href="verifier.html" class="card skill-card">
+          <div class="skill-icon">✅</div>
+          <h3>Vérifier</h3>
+          <p>Vérifier et valider la conformité des systèmes</p>
+        </a>
+
+        <div class="card skill-card" style="opacity: 0.5;">
+          <div class="skill-icon">🔒</div>
+          <h3>Maintenir</h3>
+          <p>À découvrir en année 2</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section class="section" style="background: var(--sand-200);">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Projets récents</h2>
+        <p>Découvrez quelques-unes de mes réalisations</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <a href="thermometre.html" class="card project-card">
+
+          <img 
+            src="assets/images/thermometre.png" 
+            alt="Thermomètre de bain"
+          >
+
+          <div class="project-card-content">
+
+            <h3>Thermomètre de bain</h3>
+
+            <p>
+              Projet de conception d’un système permettant
+              de mesurer la température de l’eau avec affichage
+              et signalisation.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Arduino</span>
+              <span class="tag">Capteurs</span>
+            </div>
+
+          </div>
+        </a>
+
+        <a href="kart.html" class="card project-card">
+
+          <img 
+            src="assets/images/kart.png" 
+            alt="Kart à hélice"
+          >
+
+          <div class="project-card-content">
+
+            <h3>Kart à hélice</h3>
+
+            <p>
+              Projet mêlant mécanique et électronique autour
+              de la conception d’un kart propulsé par hélice.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Mécanique</span>
+              <span class="tag">Électronique</span>
+            </div>
+
+          </div>
+        </a>
+
+      </div>
+
+      <p class="text-center mt-md">
+        <a href="projects.html" class="btn btn-primary">
+          Tous mes projets
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="social-links">
+        <a href="#">in</a>
+        <a href="#">gh</a>
+        <a href="#">@</a>
+      </div>
+
+      <p>
+        © 2026 Adam Ibrhountane — Étudiant BUT GEII
+      </p>
+
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

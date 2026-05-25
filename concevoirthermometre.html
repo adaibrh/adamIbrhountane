@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétences — Concevoir | Thermomètre de bain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">MonPortfolio</a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="skills.html">Compétences</a></li>
+        <li><a href="projects.html" class="active">Projets</a></li>
+        <li><a href="interests.html">Centres d’intérêt</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="competence-header">
+    <div class="container">
+      <p class="code">Projet — Thermomètre de bain</p>
+      <h1>Compétences développées — Concevoir</h1>
+      <p>Analyse fonctionnelle, conception électronique, prototypage et fabrication</p>
+    </div>
+  </header>
+
+  <!-- INTRODUCTION -->
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <h2>Introduction</h2>
+        <p>
+          Cette page présente les compétences de conception développées durant le projet du thermomètre de bain.
+        </p>
+        <ul style="margin:1rem 0 1.5rem 1.5rem;">
+          <li>Bleu : eau froide</li>
+          <li>Vert : température correcte</li>
+          <li>Rouge : eau trop chaude</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- C1A -->
+  <section class="section" style="background:var(--sand-200);">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C1a — Analyse fonctionnelle d’un système simple</h2>
+      </div>
+
+      <div class="card mb-md">
+        <p>
+          Analyse du cahier des charges et structuration du système en blocs fonctionnels.
+        </p>
+      </div>
+
+      <!-- IMAGE FIX PROPRE -->
+      <div class="card">
+        <div style="display:flex; justify-content:center; align-items:center; padding:10px;">
+          <img src="assets/images/C1a.png"
+               alt="Diagramme architecture"
+               style="max-width:100%; height:auto; display:block; border-radius:12px;">
+        </div>
+
+        <h3>Analyse fonctionnelle du système</h3>
+        <p>
+          Le diagramme représente les blocs acquisition, traitement, action et énergie.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C1B -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C1b — Prototype matériel</h2>
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div style="display:flex; justify-content:center; padding:10px;">
+            <img src="assets/images/C1b1.png"
+                 alt="Schéma ISIS"
+                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
+          </div>
+          <h3>Schéma ISIS</h3>
+          <p>Dimensionnement des LED et résistances.</p>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:center; padding:10px;">
+            <img src="assets/images/C1b2.png"
+                 alt="Simulation"
+                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
+          </div>
+          <h3>Simulation</h3>
+          <p>Validation du circuit avant fabrication.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C1C -->
+  <section class="section" style="background:var(--sand-200);">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C1c — Fabrication</h2>
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div style="display:flex; justify-content:center; padding:10px;">
+            <img src="assets/images/C1c1.png"
+                 alt="Schéma final"
+                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
+          </div>
+          <h3>Schéma électrique final</h3>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:center; padding:10px;">
+            <img src="assets/images/routagethr.png"
+                 alt="Routage ARES"
+                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
+          </div>
+          <h3>Routage ARES</h3>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RETOUR -->
+  <section class="section">
+    <div class="container text-center">
+      <a href="thermometre.html" class="btn btn-outline">← Retour</a>
+    </div>
+  </section>
+
+</body>
+</html>

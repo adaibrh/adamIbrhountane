@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétences — Concevoir | Kart à hélice télécommandé</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">MonPortfolio</a>
+
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="skills.html">Compétences</a></li>
+      <li><a href="projects.html" class="active">Projets</a></li>
+      <li><a href="interests.html">Centres d'intérêt</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="competence-header">
+  <div class="container">
+    <p class="code">Projet — Kart à hélice télécommandé</p>
+    <h1>Concevoir le système embarqué</h1>
+    <p>Analyse fonctionnelle et architecture globale du kart télécommandé.</p>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+
+    <div class="card" style="max-width: 950px; margin: auto;">
+      <h2>Présentation de la compétence</h2>
+
+      <p>
+        Cette partie du projet consiste à analyser le système et à concevoir son architecture globale
+        en respectant le cahier des charges.
+      </p>
+
+      <p>
+        Elle mobilise l’étude fonctionnelle, la sélection des solutions techniques et la structuration
+        du système en blocs.
+      </p>
+    </div>
+
+    <div class="cards-grid" style="margin-top: 2rem;">
+
+      <div class="card">
+        <h3>Compétences développées</h3>
+        <ul>
+          <li>Analyse fonctionnelle</li>
+          <li>Architecture système</li>
+          <li>Choix technologiques</li>
+          <li>Lecture du cahier des charges</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Ma contribution</h3>
+        <p>
+          J’ai travaillé sur le bloc énergie et le bloc traitement du récepteur,
+          notamment le dimensionnement et les choix matériels.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr style="margin: 4rem auto; max-width: 200px; border: none; border-top: 1px solid var(--sand-400);">
+
+<!-- C1a -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>C1a — Analyse fonctionnelle</h2>
+      <p>Architecture globale du système</p>
+    </div>
+
+    <div class="card" style="max-width: 950px; margin: auto;">
+      <p>
+        Le système a été modélisé sous forme de synoptique à 4 blocs :
+        acquisition, traitement, action et énergie.
+      </p>
+
+      <img src="assets/images/kah_c1.png"
+           alt="Synoptique du système"
+           style="width: 100%; max-width: 850px; margin: auto; display: block; border-radius: var(--radius-sm); object-fit: contain;">
+
+      <h3 style="margin-top: 1rem;">Synoptique du système</h3>
+
+      <p>
+        Chaque bloc correspond à une fonction précise et respecte les exigences du cahier des charges.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<hr style="margin: 4rem auto; max-width: 200px; border: none; border-top: 1px solid var(--sand-400);">
+
+<!-- C1b HARDWARE -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>C1b — Prototype matériel</h2>
+      <p>Conception électronique du récepteur</p>
+    </div>
+
+    <div class="card" style="max-width: 950px; margin: auto;">
+
+      <p>
+        Le cœur du système est basé sur un microcontrôleur ATmega328P.
+        Le schéma électronique a été réalisé sous ISIS.
+      </p>
+
+      <img src="assets/images/kah_c2.png"
+           alt="Schéma ISIS"
+           style="width: 100%; max-width: 850px; margin: auto; display: block; border-radius: var(--radius-sm); object-fit: contain;">
+
+      <h3 style="margin-top: 1rem;">Schéma électronique</h3>
+
+      <p>
+        Il intègre l’alimentation, le RESET, le quartz, les entrées/sorties et les actionneurs.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<hr style="margin: 4rem auto; max-width: 200px; border: none; border-top: 1px solid var(--sand-400);">
+
+<!-- C1b SOFTWARE -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>C1b — Prototype logiciel</h2>
+      <p>Traitement des données et communication NEC</p>
+    </div>
+
+    <div class="card" style="max-width: 950px; margin: auto;">
+
+      <p>
+        Les données analogiques de l’ADC sont compressées pour respecter le protocole NEC.
+      </p>
+
+      <ul>
+        <li>ADC : 10 bits (0–1023)</li>
+        <li>Vitesse : 3 bits</li>
+        <li>Direction : 5 bits</li>
+        <li>Compression via fonction map()</li>
+      </ul>
+
+      <img src="assets/images/kah_c3.png"
+           alt="Code émetteur"
+           style="width: 100%; max-width: 850px; margin: auto; display: block; border-radius: var(--radius-sm); object-fit: contain;">
+
+      <h3 style="margin-top: 1rem;">Extrait du programme</h3>
+
+      <p>
+        Conversion et encodage des données avant transmission infrarouge.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<hr style="margin: 4rem auto; max-width: 200px; border: none; border-top: 1px solid var(--sand-400);">
+
+<!-- CONCLUSION -->
+<section class="section">
+  <div class="container">
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <h3>Électronique</h3>
+        <p>Conception du schéma et dimensionnement des composants.</p>
+      </div>
+
+      <div class="card">
+        <h3>Logiciel</h3>
+        <p>Programmation embarquée et traitement des trames NEC.</p>
+      </div>
+
+      <div class="card">
+        <h3>Système</h3>
+        <p>Intégration complète du système embarqué.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>

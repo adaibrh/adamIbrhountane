@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thermomètre de bain | Portfolio BUT GEII</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container">
+
+      <a href="../index.html" class="logo">MonPortfolio</a>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../about.html">À propos</a></li>
+        <li><a href="../skills.html">Compétences</a></li>
+        <li><a href="../projects.html" class="active">Projets</a></li>
+        <li><a href="../interests.html">Centres d'intérêt</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="competence-header">
+    <div class="container">
+
+      <p class="code">SAÉ — Thermomètre de bain</p>
+
+      <h1>Thermomètre de bain</h1>
+
+      <p>
+        Système électronique de détection de température avec signalisation LED
+      </p>
+
+    </div>
+
+  </header>
+
+  <!-- IMAGE -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+
+      <div class="card"
+           style="
+             padding: var(--space-sm);
+             overflow: hidden;
+             background: var(--sand-200);
+             display: flex;
+             justify-content: center;
+             align-items: center;
+           ">
+
+        <img
+          src="../assets/images/tdb_cover.jpg"
+          alt="Thermomètre de bain"
+          style="
+            max-width: 100%;
+            max-height: 420px;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            transition: transform 0.4s ease;
+          "
+          onmouseover="this.style.transform='scale(1.02)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OBJECTIF -->
+  <section class="section">
+    <div class="container">
+
+      <div class="card">
+
+        <h2>Objectif du projet</h2>
+
+        <p>
+          Le projet consistait à concevoir un thermomètre de bain capable de mesurer la température de l’eau
+          et d’indiquer son état grâce à trois LED.
+        </p>
+
+        <ul style="margin: 1rem 0 1.5rem 1.5rem;">
+          <li><strong>Bleu :</strong> eau froide (&lt; 36°C)</li>
+          <li><strong>Vert :</strong> température correcte (36°C – 39°C)</li>
+          <li><strong>Rouge :</strong> eau trop chaude (&gt; 39°C)</li>
+        </ul>
+
+        <p>
+          Système simple, autonome et fiable.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DOCUMENTS -->
+  <section class="section" style="background: var(--sand-200);">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Documents du projet</h2>
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <h3>Cahier des charges</h3>
+          <a href="../assets/documents/tdb_cdc.pdf"
+             target="_blank"
+             class="btn btn-outline">
+            Ouvrir
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Dossier de conception</h3>
+          <a href="../assets/documents/tdb_ddc.pdf"
+             target="_blank"
+             class="btn btn-outline">
+            Ouvrir
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Dossier de fabrication</h3>
+          <a href="../assets/documents/tdb_ddf.pdf"
+             target="_blank"
+             class="btn btn-outline">
+            Ouvrir
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Dossier de vérification</h3>
+          <a href="../assets/documents/tdb_ddv.pdf"
+             target="_blank"
+             class="btn btn-outline">
+            Ouvrir
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Compétences mobilisées</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <a href="concevoirthermometre.html"
+           class="card skill-card"
+           style="text-decoration: none; color: inherit;">
+
+          <div class="skill-icon">🔧</div>
+
+          <h3>Concevoir</h3>
+
+          <p>
+            Analyse fonctionnelle, choix techniques
+            et dimensionnement du système.
+          </p>
+
+        </a>
+
+        <a href="../verifierthermometre.html"
+           class="card skill-card"
+           style="text-decoration: none; color: inherit;">
+
+          <div class="skill-icon">✅</div>
+
+          <h3>Vérifier</h3>
+
+          <p>
+            Tests, validation des exigences
+            et conformité du système.
+          </p>
+
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RETOUR -->
+  <div class="container text-center mt-lg mb-lg">
+
+    <a href="../projects.html" class="btn btn-outline">
+      ← Retour aux projets
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Portfolio BUT GEII</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>
