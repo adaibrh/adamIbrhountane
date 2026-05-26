@@ -8,7 +8,6 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
@@ -42,7 +41,7 @@
   </nav>
 
   <!-- HEADER -->
-  <header class="competence-header">
+  <header class="competence-header project-hero">
     <div class="container">
 
       <p class="code">Projet BUT GEII</p>
@@ -50,9 +49,16 @@
       <h1>Kart à hélice télécommandé</h1>
 
       <p>
-        Conception d’un système embarqué piloté par liaison infrarouge
-        utilisant le protocole NEC.
+        Conception d’un système embarqué capable de piloter un kart à hélice
+        grâce à une transmission infrarouge utilisant le protocole NEC.
       </p>
+
+      <div class="project-meta">
+        <span>Transmission IR</span>
+        <span>Protocole NEC</span>
+        <span>Émetteur / Récepteur</span>
+        <span>Motorisation + direction</span>
+      </div>
 
     </div>
   </header>
@@ -61,76 +67,431 @@
   <section class="section" style="padding-top: 0;">
     <div class="container">
 
-      <div class="card"
-           style="
-             padding: var(--space-sm);
-             overflow: hidden;
-             background: var(--sand-200);
-             display: flex;
-             justify-content: center;
-             align-items: center;
-           ">
-
-        <img
-          src="assets/images/kah_cover.png"
-          alt="Kart à hélice télécommandé"
-          style="
-            max-width: 100%;
-            max-height: 420px;
-            width: auto;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            border-radius: var(--radius-sm);
-            transition: transform 0.4s ease;
-          "
-          onmouseover="this.style.transform='scale(1.02)'"
-          onmouseout="this.style.transform='scale(1)'"
-        >
-
-      </div>
+      <figure class="card project-cover">
+        <img src="assets/images/kah_cover.png" alt="Kart à hélice télécommandé">
+        <figcaption>
+          Prototype du kart à hélice télécommandé réalisé dans le cadre du projet BUT GEII.
+        </figcaption>
+      </figure>
 
     </div>
   </section>
 
-  <!-- OBJECTIF -->
+  <!-- INTRODUCTION -->
   <section class="section">
     <div class="container">
 
-      <div class="card">
+      <div class="sport-layout">
 
-        <h2>Objectif du projet</h2>
+        <article class="card sport-intro">
+          <p class="section-kicker">Introduction</p>
+          <h2>Contexte du projet</h2>
 
-        <p>
-          Le projet consistait à concevoir et réaliser un
-          <strong>kart à hélice télécommandé</strong>
-          capable d’être piloté à distance grâce à une
-          <strong>liaison infrarouge</strong>.
-        </p>
+          <p>
+            Ce projet s’inscrit dans ma formation en BUT GEII, où l’objectif était
+            de concevoir un système mêlant électronique, programmation embarquée,
+            transmission de données et pilotage d’actionneurs.
+          </p>
 
-        <p>
-          Le système permettait de contrôler :
-        </p>
+          <p>
+            Le système étudié est un kart à hélice télécommandé. Il repose sur une
+            liaison infrarouge entre une partie émetteur, utilisée par l’utilisateur,
+            et une partie récepteur intégrée au kart. Cette architecture permet
+            de transmettre des commandes puis de les interpréter pour contrôler
+            le déplacement du véhicule.
+          </p>
+        </article>
 
-        <ul style="margin: 0.5rem 0 1.5rem 1.5rem;">
-          <li>la vitesse du moteur,</li>
-          <li>la direction des roues,</li>
-          <li>ainsi que le klaxon.</li>
-        </ul>
-
-        <p>
-          Le projet était divisé en deux parties :
-        </p>
-
-        <ul style="margin: 0.5rem 0 1.5rem 1.5rem;">
-          <li><strong>Émetteur :</strong> acquisition et transmission NEC</li>
-          <li><strong>Récepteur :</strong> réception et pilotage du kart</li>
-        </ul>
+        <aside class="quote-card project-summary">
+          <span>IR</span>
+          <p>Commander un kart à distance avec une liaison infrarouge fiable.</p>
+        </aside>
 
       </div>
 
     </div>
   </section>
+
+  <!-- OBJECTIF ET FONCTIONNEMENT -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">01</span>
+          <h2>Objectif du projet</h2>
+
+          <p>
+            Le but du projet était de concevoir et valider un kart à hélice
+            capable d’être piloté à distance. Le système devait permettre
+            de contrôler la vitesse du moteur, la direction des roues
+            et une commande de klaxon.
+          </p>
+
+          <p>
+            L’enjeu était de passer d’un besoin fonctionnel à une solution
+            technique complète, en tenant compte des contraintes du cahier
+            des charges, du matériel disponible et de la fiabilité attendue.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">02</span>
+          <h2>Fonctionnement général</h2>
+
+          <p>
+            Le projet est organisé autour de deux sous-systèmes principaux :
+            un émetteur et un récepteur. L’émetteur génère des commandes,
+            les encode sous forme de trames infrarouges, puis les transmet
+            au kart.
+          </p>
+
+          <p>
+            Le récepteur reçoit ces trames, les décode grâce au protocole NEC
+            et les traduit en actions : contrôle du moteur, gestion de la
+            direction et activation du klaxon.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">03</span>
+          <h2>Architecture du système</h2>
+
+          <ul class="clean-list">
+            <li><strong>Émetteur :</strong> acquisition des commandes utilisateur et émission NEC.</li>
+            <li><strong>Récepteur :</strong> réception des trames, décodage et commande du kart.</li>
+            <li><strong>Kart :</strong> intégration du moteur, de la direction et de l’alimentation.</li>
+            <li><strong>Interface :</strong> commandes de pilotage et bouton de klaxon.</li>
+          </ul>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EMETTEUR / RECEPTEUR -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Émetteur et récepteur</h2>
+        <p>Le système est composé de deux parties complémentaires qui communiquent par infrarouge.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">Émetteur</span>
+          <h2>Transmission des commandes</h2>
+
+          <p>
+            L’émetteur correspond à la partie utilisée pour envoyer les ordres
+            au véhicule. Il récupère les actions de l’utilisateur, puis les convertit
+            en trames infrarouges compatibles avec le protocole NEC.
+          </p>
+
+          <ul class="clean-list">
+            <li>Portée infrarouge visée supérieure ou égale à 10 m.</li>
+            <li>Autonomie visée supérieure ou égale à 60 min.</li>
+            <li>Deux interfaces homme-machine et un bouton klaxon.</li>
+            <li>Émission des commandes sous forme de trames NEC.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Récepteur</span>
+          <h2>Pilotage du kart</h2>
+
+          <p>
+            Le récepteur est intégré au kart. Il reçoit les trames envoyées
+            par l’émetteur, les interprète, puis déclenche les actions associées
+            sur le véhicule.
+          </p>
+
+          <ul class="clean-list">
+            <li>Réception et décodage des trames infrarouges.</li>
+            <li>Utilisation du protocole NEC.</li>
+            <li>Autonomie visée supérieure ou égale à 15 min à mi-puissance.</li>
+            <li>Commande du moteur et de la direction.</li>
+          </ul>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TECHNOLOGIES -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Technologies utilisées</h2>
+        <p>Les principaux éléments techniques mobilisés pour concevoir et valider le système.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <article class="card">
+          <h3>Transmission infrarouge</h3>
+          <p>
+            Mise en place d’une communication sans fil courte portée entre
+            la télécommande et le kart.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Protocole NEC</h3>
+          <p>
+            Encodage, émission, réception et décodage de trames pour identifier
+            les commandes envoyées.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Électronique embarquée</h3>
+          <p>
+            Intégration de composants électroniques dans un système mobile
+            soumis à des contraintes d’autonomie et de place.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Pilotage moteur</h3>
+          <p>
+            Commande de la propulsion et de la direction pour obtenir
+            un comportement cohérent du véhicule.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTRAINTES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Contraintes du cahier des charges</h2>
+        <p>Les exigences principales qui ont guidé les choix techniques du projet.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">Émetteur</span>
+          <h2>Contraintes de commande</h2>
+
+          <ul class="clean-list">
+            <li>Portée infrarouge supérieure ou égale à 10 m.</li>
+            <li>Autonomie supérieure ou égale à 60 min.</li>
+            <li>Présence de deux interfaces homme-machine.</li>
+            <li>Ajout d’un bouton poussoir pour le klaxon.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Récepteur</span>
+          <h2>Contraintes embarquées</h2>
+
+          <ul class="clean-list">
+            <li>Réception fiable des trames.</li>
+            <li>Décodage du protocole NEC.</li>
+            <li>Autonomie supérieure ou égale à 15 min à mi-puissance.</li>
+            <li>Contrôle du moteur et de la direction.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Projet</span>
+          <h2>Contraintes globales</h2>
+
+          <ul class="clean-list">
+            <li>Coût total inférieur à 160 € TTC.</li>
+            <li>Temps de développement prévu : 58 h.</li>
+            <li>Système cohérent, intégrable et testable.</li>
+            <li>Documentation complète du projet.</li>
+          </ul>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IMAGES -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Illustrations du projet</h2>
+        <p>Quelques éléments visuels issus de la conception et de la réalisation du kart.</p>
+      </div>
+
+      <div class="exercise-grid">
+
+        <figure class="card exercise-card">
+          <img src="assets/images/kah_cover.png" alt="Prototype du kart à hélice">
+          <figcaption>
+            <strong>Prototype</strong>
+            <span>Vue globale du kart à hélice télécommandé.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card exercise-card">
+          <img src="assets/images/kah_c1.png" alt="Architecture ou conception du kart à hélice">
+          <figcaption>
+            <strong>Conception</strong>
+            <span>Travail d’analyse et de structuration du système.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card exercise-card">
+          <img src="assets/images/kah_c2.png" alt="Élément technique du projet kart à hélice">
+          <figcaption>
+            <strong>Partie technique</strong>
+            <span>Étude des choix techniques autour du pilotage du kart.</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCUMENTS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Documents du projet</h2>
+        <p>Les documents PDF associés au projet sont consultables directement depuis le portfolio.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <article class="card">
+          <h3>Cahier des charges</h3>
+          <p>Présentation du besoin, des contraintes et des exigences du système.</p>
+          <a href="assets/documents/KAH_CDC.pdf" target="_blank" class="btn btn-outline">
+            Ouvrir
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Dossier de conception</h3>
+          <p>Analyse technique, choix de conception et architecture du projet.</p>
+          <a href="assets/documents/KAH_DDC.pdf" target="_blank" class="btn btn-outline">
+            Ouvrir
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>DDF émetteur</h3>
+          <p>Dossier de fabrication de la partie émetteur du système.</p>
+          <a href="assets/documents/KAH_DDF_EMTT.pdf" target="_blank" class="btn btn-outline">
+            Ouvrir
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>DDF récepteur</h3>
+          <p>Dossier de fabrication de la partie récepteur intégrée au kart.</p>
+          <a href="assets/documents/KAH_DDF_RCPT.pdf" target="_blank" class="btn btn-outline">
+            Ouvrir
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Compétences mobilisées</h2>
+        <p>Ce projet m’a permis de travailler plusieurs compétences importantes du BUT GEII.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <a href="concevoirkart.html"
+           class="card skill-card"
+           style="text-decoration: none; color: inherit;">
+
+          <div class="skill-icon">🔧</div>
+
+          <h3>Concevoir</h3>
+
+          <p>
+            Analyser le besoin, choisir une architecture technique,
+            étudier les contraintes et préparer la réalisation du système.
+          </p>
+
+        </a>
+
+        <a href="verifierkart.html"
+           class="card skill-card"
+           style="text-decoration: none; color: inherit;">
+
+          <div class="skill-icon">✅</div>
+
+          <h3>Vérifier</h3>
+
+          <p>
+            Tester le fonctionnement, valider la transmission,
+            contrôler les performances et vérifier la conformité aux exigences.
+          </p>
+
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="section">
+    <div class="container">
+
+      <article class="card conclusion-card">
+        <p class="section-kicker">Conclusion</p>
+        <h2>Ce que ce projet m’a apporté</h2>
+
+        <p>
+          Le projet du kart à hélice m’a permis de mieux comprendre la manière
+          dont un système embarqué complet est conçu, documenté puis validé.
+          Il ne s’agissait pas seulement de faire fonctionner un moteur, mais de
+          construire une solution cohérente intégrant une commande utilisateur,
+          une transmission infrarouge, un décodage de trames et une partie
+          puissance embarquée.
+        </p>
+
+        <p>
+          Ce projet m’a aussi fait progresser dans ma rigueur technique :
+          analyse du cahier des charges, séparation des fonctions, prise en compte
+          des contraintes d’autonomie et de coût, puis vérification du fonctionnement.
+          C’est une réalisation représentative du BUT GEII, car elle relie
+          l’électronique, l’informatique industrielle et la méthode de projet.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- RETOUR -->
+  <div class="container text-center mt-lg mb-lg">
+    <a href="projects.html" class="btn btn-outline">
+      Retour aux projets
+    </a>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">

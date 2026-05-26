@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet Arduino AOP | Portfolio BUT GEII</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container">
+
+      <a href="index.html" class="logo">MonPortfolio</a>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="skills.html">Compétences</a></li>
+        <li><a href="projects.html" class="active">Projets</a></li>
+        <li><a href="interests.html">Centres d'intérêt</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="competence-header project-hero">
+    <div class="container">
+
+      <p class="code">AOP Arduino — Informatique industrielle</p>
+
+      <h1>Jeu tactile Arduino inspiré de Piano Tiles</h1>
+
+      <p>
+        Réalisation d’un jeu interactif sur Arduino avec écran TFT tactile,
+        dans le cadre d’un projet AOP d’environ 12 heures.
+      </p>
+
+      <div class="project-meta">
+        <span>Durée : 12 heures</span>
+        <span>Arduino</span>
+        <span>Écran tactile TFT</span>
+        <span>Programmation C++</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- IMAGE DE COUVERTURE -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+
+      <figure class="card project-cover">
+        <img src="assets/images/arduino-schema.jpg" alt="Principe du jeu Arduino Piano Tiles">
+        <figcaption>
+          Principe du jeu : les cases noires se déplacent et le joueur doit appuyer sur la bonne case.
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="section">
+    <div class="container">
+
+      <div class="sport-layout">
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Introduction</p>
+          <h2>Contexte du projet</h2>
+
+          <p>
+            Ce projet a été réalisé dans le cadre des AOP Arduino en BUT GEII.
+            L’objectif était de développer une application concrète sur microcontrôleur,
+            en utilisant une carte Arduino équipée d’un shield écran tactile.
+          </p>
+
+          <p>
+            J’ai choisi de réaliser un jeu inspiré de Piano Tiles, aussi connu sous le nom
+            “Don’t type the white tile”. Le principe est simple : le joueur doit toucher
+            uniquement les cases noires qui apparaissent à l’écran.
+          </p>
+        </article>
+
+        <aside class="quote-card project-summary">
+          <span>12 h</span>
+          <p>Projet court, autonome et orienté programmation embarquée.</p>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OBJECTIFS ET MATERIEL -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">01</span>
+          <h2>Objectifs du projet</h2>
+
+          <ul class="clean-list">
+            <li>Créer un jeu interactif sur Arduino.</li>
+            <li>Utiliser un écran TFT tactile et ses bibliothèques.</li>
+            <li>Afficher une grille de jeu composée de 4 colonnes et 4 lignes.</li>
+            <li>Gérer le score, la défaite et le retour au menu.</li>
+            <li>Structurer le programme avec des fonctions claires.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">02</span>
+          <h2>Matériel utilisé</h2>
+
+          <ul class="clean-list">
+            <li>Carte Arduino.</li>
+            <li>Shield écran tactile TFT.</li>
+            <li>Environnement Arduino IDE.</li>
+            <li>Bibliothèques TouchScreen, Adafruit_GFX et Adafruit_TFTLCD.</li>
+            <li>Câble USB pour le téléversement et les tests.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">03</span>
+          <h2>Fonctionnement global</h2>
+
+          <p>
+            L’écran est divisé en 4 colonnes et 4 lignes. Une case noire est présente
+            sur chaque ligne, et le joueur doit appuyer sur la case noire située
+            sur la ligne du bas.
+          </p>
+
+          <p>
+            Si l’appui est correct, les cases se décalent vers le bas, une nouvelle case
+            est générée en haut et le score augmente. Si l’utilisateur appuie au mauvais
+            endroit, un écran de défaite apparaît avec le score obtenu.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REALISATION -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Étapes de réalisation</h2>
+        <p>Les principales étapes suivies pour passer de l’idée au jeu fonctionnel.</p>
+      </div>
+
+      <div class="process-list">
+
+        <article class="card process-item">
+          <span>1</span>
+          <div>
+            <h3>Initialisation de l’écran</h3>
+            <p>
+              Mise en place des bibliothèques, définition des broches de l’écran TFT
+              et initialisation de l’affichage.
+            </p>
+          </div>
+        </article>
+
+        <article class="card process-item">
+          <span>2</span>
+          <div>
+            <h3>Création du menu</h3>
+            <p>
+              Affichage d’un écran d’accueil avec le nom du projet et un message
+              invitant l’utilisateur à commencer la partie.
+            </p>
+          </div>
+        </article>
+
+        <article class="card process-item">
+          <span>3</span>
+          <div>
+            <h3>Gestion de la grille</h3>
+            <p>
+              Stockage des positions des cases noires dans un tableau, puis affichage
+              des rectangles sur l’écran tactile.
+            </p>
+          </div>
+        </article>
+
+        <article class="card process-item">
+          <span>4</span>
+          <div>
+            <h3>Lecture tactile et détection des erreurs</h3>
+            <p>
+              Conversion des coordonnées tactiles avec la fonction map, vérification
+              de la zone appuyée et affichage de l’écran de défaite en cas d’erreur.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETENCES ET RESULTATS -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">04</span>
+          <h2>Compétences mobilisées</h2>
+
+          <ul class="clean-list">
+            <li>Programmation en C++ sur Arduino.</li>
+            <li>Utilisation de bibliothèques matérielles.</li>
+            <li>Gestion d’un écran tactile et de coordonnées.</li>
+            <li>Algorithmique avec tableaux, boucles et conditions.</li>
+            <li>Tests, correction d’erreurs et débogage.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">05</span>
+          <h2>Résultats obtenus</h2>
+
+          <p>
+            Le projet aboutit à un jeu fonctionnel avec un menu d’accueil,
+            une interface de jeu, un système de score et un écran de défaite.
+          </p>
+
+          <p>
+            Les principales difficultés ont concerné la calibration du tactile,
+            la gestion des coordonnées, la pression de l’écran et le rafraîchissement
+            de l’affichage. Ces contraintes ont nécessité plusieurs tests et corrections.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IMAGES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Images du projet</h2>
+        <p>Quelques éléments extraits du compte rendu : principe, interface, résultat et code.</p>
+      </div>
+
+      <div class="exercise-grid">
+
+        <figure class="card exercise-card">
+          <img src="assets/images/arduino-schema.jpg" alt="Principe du jeu Piano Tiles sur Arduino">
+          <figcaption>
+            <strong>Principe du jeu</strong>
+            <span>Défilement des cases noires sur une grille tactile.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card exercise-card">
+          <img src="assets/images/arduino-menu.jpg" alt="Écran d’accueil du jeu Arduino">
+          <figcaption>
+            <strong>Menu d’accueil</strong>
+            <span>Écran affiché au démarrage et après une partie perdue.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card exercise-card">
+          <img src="assets/images/arduino-resultat.jpg" alt="Interface du jeu Arduino">
+          <figcaption>
+            <strong>Interface de jeu</strong>
+            <span>Grille 4x4 avec cases noires à toucher.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card exercise-card">
+          <img src="assets/images/arduino-perdu.jpg" alt="Écran de défaite du jeu Arduino">
+          <figcaption>
+            <strong>Écran de défaite</strong>
+            <span>Affichage du message PERDU et du score.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card exercise-card">
+          <img src="assets/images/arduino-code.jpg" alt="Extrait du code Arduino">
+          <figcaption>
+            <strong>Extrait de code</strong>
+            <span>Fonctions principales utilisées pour l’affichage et le déplacement.</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCUMENT -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Document du projet</h2>
+      </div>
+
+      <article class="card document-card">
+        <div>
+          <h3>Compte rendu AOP Arduino</h3>
+          <p>
+            Le compte rendu présente le principe du jeu, les parties importantes du code,
+            les fonctions utilisées, les résultats obtenus et les difficultés rencontrées.
+          </p>
+        </div>
+
+        <a href="assets/documents/arduino-compte-rendu.pdf" target="_blank" class="btn btn-outline">
+          Ouvrir le compte rendu
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="section">
+    <div class="container">
+
+      <article class="card conclusion-card">
+        <p class="section-kicker">Conclusion</p>
+        <h2>Ce que ce projet m’a apporté</h2>
+        <p>
+          Ce projet m’a permis de renforcer ma maîtrise de la programmation Arduino,
+          de découvrir l’utilisation d’un écran tactile et de progresser en autonomie.
+          Il m’a aussi appris à analyser mes erreurs, tester différentes solutions
+          et structurer un programme interactif de manière plus rigoureuse.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- RETOUR -->
+  <div class="container text-center mt-lg mb-lg">
+    <a href="projects.html" class="btn btn-outline">
+      Retour aux projets
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+
+</body>
+</html>
