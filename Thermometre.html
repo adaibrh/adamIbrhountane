@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thermomètre de bain | Portfolio BUT GEII</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- FIX CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,6 +21,12 @@
     <div class="container">
 
       <a href="index.html" class="logo">MonPortfolio</a>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
@@ -35,7 +41,7 @@
   </nav>
 
   <!-- HEADER -->
-  <header class="competence-header">
+  <header class="competence-header project-hero">
     <div class="container">
 
       <p class="code">SAÉ — Thermomètre de bain</p>
@@ -43,116 +49,475 @@
       <h1>Thermomètre de bain</h1>
 
       <p>
-        Système électronique de détection de température avec signalisation LED
+        Conception d’une carte électronique qui mesure la température de l’eau,
+        compare deux seuils et allume la LED correspondant à l’état du bain.
       </p>
 
-    </div>
+      <div class="project-meta">
+        <span>BUT GEII</span>
+        <span>LM35DZ</span>
+        <span>MCP6002</span>
+        <span>Seuils 36 °C / 39 °C</span>
+        <span>Conception électronique</span>
+      </div>
 
+    </div>
   </header>
 
-  <!-- IMAGE -->
+  <!-- IMAGE DE COUVERTURE -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
 
-      <div class="card"
-           style="
-             padding: var(--space-sm);
-             overflow: hidden;
-             background: var(--sand-200);
-             display: flex;
-             justify-content: center;
-             align-items: center;
-           ">
-
-        <!-- FIX IMAGE PATH -->
-        <img
-          src="assets/images/tdb_Cover.JPG"
-          alt="Thermomètre de bain"
-          style="
-            max-width: 100%;
-            max-height: 420px;
-            width: auto;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            border-radius: var(--radius-sm);
-            transition: transform 0.4s ease;
-          "
-          onmouseover="this.style.transform='scale(1.02)'"
-          onmouseout="this.style.transform='scale(1)'"
-        >
-
-      </div>
+      <figure class="card project-cover">
+        <img src="assets/images/tdb-cover-thermometre-reel.png" alt="Thermomètre de bain analogique pour bébé">
+        <figcaption>
+          Prototype du thermomètre de bain : une LED bleue, verte ou rouge indique directement la plage de température mesurée.
+        </figcaption>
+      </figure>
 
     </div>
   </section>
 
-  <!-- OBJECTIF -->
+  <!-- INTRODUCTION -->
   <section class="section">
     <div class="container">
 
-      <div class="card">
+      <div class="sport-layout">
 
-        <h2>Objectif du projet</h2>
+        <article class="card sport-intro">
+          <p class="section-kicker">Projet SAÉ</p>
+          <h2>Transformer une température en décision électronique</h2>
 
-        <p>
-          Le projet consistait à concevoir un thermomètre de bain capable de mesurer la température de l’eau
-          et d’indiquer son état grâce à trois LED.
-        </p>
+          <p>
+            Le projet consistait à concevoir un thermomètre de bain pour bébé.
+            La carte ne devait pas afficher une valeur numérique : elle devait
+            donner une information immédiate avec trois états simples, eau froide,
+            eau tiède ou eau chaude.
+          </p>
 
-        <ul style="margin: 1rem 0 1.5rem 1.5rem;">
-          <li><strong>Bleu :</strong> eau froide (&lt; 36°C)</li>
-          <li><strong>Vert :</strong> température correcte (36°C – 39°C)</li>
-          <li><strong>Rouge :</strong> eau trop chaude (&gt; 39°C)</li>
-        </ul>
+          <p>
+            Ma partie s’est surtout concentrée sur le traitement de l’information
+            et l’action : transformer la tension issue du capteur en trois états
+            logiques, corriger la logique de comparaison en simulation, puis
+            dimensionner les LED pour obtenir une indication lisible sans dépasser
+            les contraintes du cahier des charges.
+          </p>
+        </article>
 
-        <p>
-          Système simple, autonome et fiable.
-        </p>
+        <aside class="quote-card project-summary">
+          <span>40 h</span>
+          <p>Durée du projet consacrée à la conception, la simulation et la vérification.</p>
+        </aside>
 
       </div>
 
     </div>
+  </section>
 
+  <!-- PRINCIPE TECHNIQUE -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Principe technique retenu</h2>
+        <p>Le montage convertit la température en tension, puis la compare à deux références.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">01</span>
+          <h2>Trois états à distinguer</h2>
+
+          <p>
+            Le système ne cherche pas à afficher une température précise. Il classe
+            la mesure dans une plage utile pour l’utilisateur : trop froid, adapté
+            ou trop chaud. Les seuils de décision sont fixés à 36 °C et 39 °C.
+          </p>
+
+          <div class="tdb-state-grid" aria-label="États de température">
+            <div class="tdb-state tdb-state-blue">
+              <span>Bleu</span>
+              <strong>&lt; 36 °C</strong>
+              <p>Eau froide</p>
+            </div>
+
+            <div class="tdb-state tdb-state-green">
+              <span>Vert</span>
+              <strong>36 °C à 39 °C</strong>
+              <p>Eau tiède</p>
+            </div>
+
+            <div class="tdb-state tdb-state-red">
+              <span>Rouge</span>
+              <strong>&gt; 39 °C</strong>
+              <p>Eau chaude</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">02</span>
+          <h2>Capteur et seuils de tension</h2>
+
+          <p>
+            Le capteur LM35DZ fournit une tension proportionnelle à la température,
+            avec un facteur de 10 mV/°C. Les seuils thermiques deviennent donc
+            deux tensions de référence faciles à comparer.
+          </p>
+
+          <div class="tdb-metric-grid">
+            <div>
+              <span>36 °C</span>
+              <strong>360 mV</strong>
+            </div>
+
+            <div>
+              <span>39 °C</span>
+              <strong>390 mV</strong>
+            </div>
+          </div>
+
+          <ul class="clean-list">
+            <li>Le pont diviseur génère les deux références de seuil.</li>
+            <li>La mesure du LM35DZ est comparée à ces références.</li>
+            <li>Le résultat est ensuite converti en ordre d’allumage des LED.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">03</span>
+          <h2>Travail réalisé sur traitement et action</h2>
+
+          <p>
+            Dans la partie traitement, deux comparateurs MCP6002 déterminent si
+            la température est sous 36 °C, entre les deux seuils ou au-dessus de
+            39 °C. Dans la partie action, chaque état pilote une LED avec sa
+            résistance de limitation.
+          </p>
+
+          <ul class="clean-list">
+            <li>Correction de l’inversion d’entrées repérée pendant la simulation.</li>
+            <li>Remplacement de la logique négative par une porte NOR à logique positive.</li>
+            <li>Dimensionnement des résistances pour viser 50 mcd avec la tolérance demandée.</li>
+          </ul>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Architecture du système</h2>
+        <p>Le produit est organisé autour de quatre blocs : acquisition, traitement, action et énergie.</p>
+      </div>
+
+      <figure class="card project-cover mb-lg">
+        <img src="assets/images/C1a.png" alt="Synoptique fonctionnel du thermomètre de bain">
+        <figcaption>
+          Architecture fonctionnelle du thermomètre : mesure de la température, traitement logique, action par LED et alimentation du circuit.
+        </figcaption>
+      </figure>
+
+      <div class="cards-grid sport-cards tdb-architecture-grid">
+
+        <article class="card">
+          <span class="sport-step">Acquisition</span>
+          <h2>Mesurer et créer les références</h2>
+          <p>
+            Le LM35DZ transforme la température en tension. Comme il délivre
+            10 mV/°C, une eau à 36 °C correspond à 360 mV et une eau à 39 °C à
+            390 mV. Le pont diviseur de tension fournit ensuite les deux seuils
+            de comparaison.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Traitement</span>
+          <h2>Produire trois états exclusifs</h2>
+          <p>
+            Deux AOP MCP6002 sont utilisés en comparateurs. Le premier détecte
+            l’eau froide lorsque la mesure est inférieure au seuil bas. Le second
+            détecte l’eau chaude lorsque la mesure dépasse le seuil haut. Une
+            porte NOR SN74HC02N active l’état eau tiède seulement si les deux
+            autres états sont inactifs.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Action</span>
+          <h2>Commander les voyants</h2>
+          <p>
+            Les sorties logiques pilotent trois branches LED. Chaque branche
+            contient une résistance série pour limiter le courant et obtenir une
+            luminosité proche de 50 mcd : bleu pour eau froide, vert pour eau
+            tiède, rouge pour eau chaude.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Énergie</span>
+          <h2>Stabiliser l’alimentation</h2>
+          <p>
+            Le montage est alimenté par un accumulateur LiPo 2S externe. Un
+            régulateur linéaire LM78L05 fournit 5 V afin d’éviter que les variations
+            de batterie ne déplacent les seuils de température.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ETAPES -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Étapes de conception</h2>
+        <p>Des points techniques détaillés, avec un focus sur mes parties : traitement et action.</p>
+      </div>
+
+      <div class="skill-topic-shell tdb-topic-shell" data-topic-group>
+        <div class="skill-topic-tabs" aria-label="Étapes techniques du thermomètre de bain">
+          <button class="skill-topic-tab is-active" type="button" data-topic-target="tdb-topic-seuils" aria-expanded="true">Seuils</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="tdb-topic-traitement" aria-expanded="false">Traitement</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="tdb-topic-action" aria-expanded="false">Action</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="tdb-topic-energie" aria-expanded="false">Énergie</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="tdb-topic-routage" aria-expanded="false">Routage</button>
+        </div>
+
+        <article class="card skill-topic-page is-active" id="tdb-topic-seuils" data-topic-page>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">01</span>
+              <h3>Définir les seuils électriques</h3>
+              <p>
+                Le LM35DZ donne une sortie linéaire de 10 mV/°C. Les deux seuils
+                de température deviennent donc 360 mV pour 36 °C et 390 mV pour
+                39 °C. Pour générer ces références, nous avons retenu un pont
+                diviseur de tension à deux sorties.
+              </p>
+
+              <p>
+                Le courant du pont a été fixé à 0,1 mA après comparaison de
+                plusieurs valeurs. Ce choix évite des résistances trop faibles ou
+                trop élevées, puis les valeurs ont été normalisées en série E24.
+              </p>
+
+              <div class="skill-chip-row">
+                <span>R11 = 100 Ω</span>
+                <span>R12 = 3 kΩ</span>
+                <span>R13 = 43 kΩ</span>
+                <span>R2 = 300 Ω</span>
+                <span>R3 = 3,6 kΩ</span>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/C1a.png" alt="Architecture fonctionnelle avec capteur LM35DZ et pont diviseur de tension">
+              <figcaption>
+                Le synoptique relie les exigences de mesure et de seuils au bloc acquisition.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="card skill-topic-page" id="tdb-topic-traitement" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">02</span>
+              <h3>Corriger et valider la logique de traitement</h3>
+              <p>
+                Cette partie a été l’une de mes contributions principales. Le
+                montage utilise deux comparateurs du MCP6002 : un pour détecter
+                l’état froid, un autre pour détecter l’état chaud. L’état tiède
+                est obtenu avec une porte NOR, uniquement lorsque froid et chaud
+                sont tous les deux inactifs.
+              </p>
+
+              <p>
+                En simulation, le montage ne réagissait pas correctement : les
+                sorties ne passaient pas à 5 V comme attendu. La cause venait
+                d’une inversion entre l’entrée du seuil chaud et l’entrée de la
+                température mesurée. Après correction, la logique négative prévue
+                au départ a été remplacée par une logique positive plus lisible.
+              </p>
+
+              <ul class="clean-list">
+                <li>0,36 V simule le seuil bas, soit environ 36 °C.</li>
+                <li>0,37 V permet d’observer l’état eau tiède entre les seuils.</li>
+                <li>0,40 V valide la détection de l’eau chaude au-dessus de 39 °C.</li>
+              </ul>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/tdb-comparateurs-seuils.jpg" alt="Deux comparateurs MCP6002 utilisés pour les seuils du thermomètre de bain">
+              <figcaption>
+                Les deux comparateurs transforment une tension de température en états logiques exploitables.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="card skill-topic-page" id="tdb-topic-action" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">03</span>
+              <h3>Dimensionner les LED d’indication</h3>
+              <p>
+                La partie action transforme les états logiques en information
+                visible. Après le passage en logique positive, une sortie active
+                à 1 allume directement la LED correspondant à l’état détecté.
+              </p>
+
+              <p>
+                Chaque LED avait une intensité lumineuse différente dans sa
+                documentation constructeur. Il fallait donc calculer une résistance
+                série propre à chaque couleur pour respecter l’objectif de 50 mcd
+                avec une tolérance de ±10 %.
+              </p>
+
+              <div class="tdb-led-table" role="list" aria-label="Résistances des LED">
+                <div role="listitem"><span>Rouge</span><strong>680 Ω</strong><em>4,86 mA, écart -6,4 %</em></div>
+                <div role="listitem"><span>Vert</span><strong>1 kΩ</strong><em>3,11 mA, écart -3,7 %</em></div>
+                <div role="listitem"><span>Bleu</span><strong>4,7 kΩ</strong><em>0,505 mA, écart +1 %</em></div>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/tdb-leds-dimensionnement.jpg" alt="Calcul de résistance série pour une LED du thermomètre de bain">
+              <figcaption>
+                Exemple de dimensionnement d’une résistance série pour adapter le courant et la luminosité d’une LED.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="card skill-topic-page" id="tdb-topic-energie" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">04</span>
+              <h3>Vérifier l’autonomie et stabiliser le 5 V</h3>
+              <p>
+                Le circuit est alimenté par un accumulateur LiPo 2S. Comme une
+                batterie ne fournit pas une tension parfaitement stable pendant
+                toute sa décharge, le régulateur LM78L05 produit une alimentation
+                de 5 V pour le capteur, les comparateurs et la logique.
+              </p>
+
+              <p>
+                Pour l’autonomie, le calcul a été fait avec le cas le plus
+                défavorable : une seule LED est allumée à la fois, mais la LED
+                rouge consomme le plus. Le courant total estimé vaut 7,382 mA,
+                soit 177,168 mAh pour 24 h. Avec 20 % de marge, le besoin devient
+                212,6 mAh ; une LiPo 7,4 V de 350 mAh couvre donc l’exigence.
+              </p>
+
+              <div class="skill-chip-row">
+                <span>LiPo 2S</span>
+                <span>LM78L05</span>
+                <span>5 V régulé</span>
+                <span>350 mAh retenus</span>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/C1c1.png" alt="Schéma électrique final du thermomètre de bain avec alimentation régulée">
+              <figcaption>
+                Le schéma final regroupe acquisition, traitement, action et alimentation régulée.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="card skill-topic-page" id="tdb-topic-routage" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">05</span>
+              <h3>Préparer une carte réalisable</h3>
+              <p>
+                Le routage devait respecter les contraintes mécaniques du projet :
+                carte double face de 100 mm par 60 mm, quatre trous de fixation
+                de 4 mm et composants accessibles pour l’utilisateur.
+              </p>
+
+              <p>
+                Les LED ont été placées en bord de carte pour rester visibles en
+                façade. L’interrupteur et le connecteur d’alimentation ont été
+                regroupés pour rendre la mise sous tension logique et limiter les
+                croisements de pistes.
+              </p>
+
+              <ul class="clean-list">
+                <li>LED alignées pour une lecture rapide froid / tiède / chaud.</li>
+                <li>Connecteur placé en haut pour faciliter le branchement de l’accumulateur.</li>
+                <li>Routage ARES utilisé pour passer du schéma au prototype physique.</li>
+              </ul>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/routagethr.png" alt="Routage ARES de la carte du thermomètre de bain">
+              <figcaption>
+                Routage de la carte avec placement des LED, du connecteur, de l’interrupteur et des circuits logiques.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
   </section>
 
   <!-- DOCUMENTS -->
-  <section class="section" style="background: var(--sand-200);">
+  <section class="section">
     <div class="container">
 
       <div class="section-header">
         <h2>Documents du projet</h2>
+        <p>Les dossiers qui structurent le projet et détaillent les différentes étapes de réalisation.</p>
       </div>
 
       <div class="cards-grid">
 
-        <div class="card">
+        <article class="card">
           <h3>Cahier des charges</h3>
+          <p>Document de référence définissant le besoin, les contraintes et les exigences du système.</p>
           <a href="assets/documents/tdb_cdc.pdf" target="_blank" class="btn btn-outline">
             Ouvrir
           </a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Dossier de conception</h3>
+          <p>Dossier présentant les choix techniques, l’analyse fonctionnelle et la solution retenue.</p>
           <a href="assets/documents/tdb_ddc.pdf" target="_blank" class="btn btn-outline">
             Ouvrir
           </a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Dossier de fabrication</h3>
+          <p>Dossier décrivant les éléments nécessaires pour fabriquer le prototype du thermomètre.</p>
           <a href="assets/documents/tdb_ddf.pdf" target="_blank" class="btn btn-outline">
             Ouvrir
           </a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Dossier de vérification</h3>
+          <p>Dossier permettant de valider le fonctionnement du système par rapport aux exigences.</p>
           <a href="assets/documents/tdb_ddv.pdf" target="_blank" class="btn btn-outline">
             Ouvrir
           </a>
-        </div>
+        </article>
 
       </div>
 
@@ -160,43 +525,32 @@
   </section>
 
   <!-- COMPÉTENCES -->
-  <section class="section">
+  <section class="section section-soft">
     <div class="container">
 
       <div class="section-header">
         <h2>Compétences mobilisées</h2>
+        <p>Les compétences principales travaillées pendant ce projet.</p>
       </div>
 
       <div class="skills-grid">
 
-        <a href="concevoirthermometre.html"
-           class="card skill-card"
-           style="text-decoration: none; color: inherit;">
-
-          <div class="skill-icon">🔧</div>
-
+        <a href="concevoirthermometre.html" class="card skill-card">
+          <div class="skill-icon">C1</div>
           <h3>Concevoir</h3>
-
           <p>
-            Analyse fonctionnelle, choix techniques
-            et dimensionnement du système.
+            Analyse fonctionnelle, choix des composants, génération des seuils,
+            conception du traitement logique et dimensionnement de l’action.
           </p>
-
         </a>
 
-        <a href="verifierthermometre.html"
-           class="card skill-card"
-           style="text-decoration: none; color: inherit;">
-
-          <div class="skill-icon">✅</div>
-
+        <a href="verifierthermometre.html" class="card skill-card">
+          <div class="skill-icon">C2</div>
           <h3>Vérifier</h3>
-
           <p>
-            Tests, validation des exigences
-            et conformité du système.
+            Simulation des seuils, observation des sorties logiques, contrôle
+            des LED et validation du comportement du prototype.
           </p>
-
         </a>
 
       </div>
@@ -204,21 +558,38 @@
     </div>
   </section>
 
-  <!-- RETOUR -->
-  <div class="container text-center mt-lg mb-lg">
+  <!-- CONCLUSION -->
+  <section class="section">
+    <div class="container">
 
-    <a href="projects.html" class="btn btn-outline">
-      ← Retour aux projets
-    </a>
+      <article class="card conclusion-card">
+        <p class="section-kicker">Conclusion</p>
+        <h2>Ce que ce projet m’a apporté</h2>
 
-  </div>
+        <p>
+          Ce projet m’a fait comprendre qu’un schéma électronique se construit
+          aussi par corrections successives. La partie traitement m’a obligé à
+          raisonner sur les entrées des comparateurs, les niveaux logiques et la
+          cohérence entre simulation et comportement attendu. La partie action
+          m’a permis de relier un résultat logique à un choix concret de LED,
+          de courant et de résistance.
+        </p>
+      </article>
+
+      <p class="text-center mt-lg">
+        <a href="projects.html" class="btn btn-outline">
+          Retour aux projets
+        </a>
+      </p>
+
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Portfolio BUT GEII</p>
+      <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
     </div>
-
   </footer>
 
   <script src="main.js"></script>

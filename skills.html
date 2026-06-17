@@ -10,16 +10,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="container">
 
       <a href="index.html" class="logo">MonPortfolio</a>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
@@ -34,76 +41,571 @@
   </nav>
 
   <!-- HEADER -->
-  <header class="hero">
+  <header class="hero sport-hero">
     <div class="container">
 
-      <div class="hero-content">
+      <div class="hero-text">
 
-        <div class="hero-text">
-          <p class="subtitle">Mes compétences</p>
+        <p class="subtitle">BUT GEII</p>
 
-          <h1>Compétences</h1>
+        <h1>Compétences</h1>
 
-          <p class="tagline">
-            Une vue d’ensemble de mes compétences techniques et transversales développées en BUT GEII.
-          </p>
-
-        </div>
+        <p class="tagline">
+          Une présentation structurée des compétences techniques et transversales
+          développées à travers mes projets, mes TP et ma formation.
+        </p>
 
       </div>
 
     </div>
   </header>
 
-  <!-- CONTENT -->
+  <!-- COMPETENCES -->
   <section class="section">
     <div class="container">
 
-      <div class="cards-grid">
+      <div class="skills-hub">
 
-        <!-- TECHNIQUES -->
-        <a href="#" class="card project-card" style="padding: 2rem;">
-
-          <div style="font-size: 2rem;">⚙️</div>
-
+        <button class="card skill-overview-card" type="button" data-skill-toggle="technical" aria-expanded="false" aria-controls="skills-technical">
           <h2>Compétences techniques</h2>
+        </button>
 
-          <p>
-            Électronique, programmation, systèmes embarqués, automatisme, outils de conception.
-          </p>
-
-          <ul style="margin-top: 1rem; margin-left: 1.2rem;">
-            <li>Électronique analogique et numérique</li>
-            <li>Programmation C / embarqué</li>
-            <li>Microcontrôleurs (Arduino, STM32)</li>
-            <li>Outils : ISIS / ARES / VS Code</li>
-            <li>Analyse et conception de systèmes</li>
-          </ul>
-
-        </a>
-
-        <!-- TRANSVERSALES -->
-        <a href="#" class="card project-card" style="padding: 2rem;">
-
-          <div style="font-size: 2rem;">🤝</div>
-
+        <button class="card skill-overview-card" type="button" data-skill-toggle="transversal" aria-expanded="false" aria-controls="skills-transversal">
           <h2>Compétences transversales</h2>
-
-          <p>
-            Travail en équipe, communication et gestion de projet.
-          </p>
-
-          <ul style="margin-top: 1rem; margin-left: 1.2rem;">
-            <li>Travail en équipe</li>
-            <li>Gestion de projet (SAÉ)</li>
-            <li>Autonomie</li>
-            <li>Communication technique</li>
-            <li>Résolution de problèmes</li>
-          </ul>
-
-        </a>
+        </button>
 
       </div>
+
+      <!-- COMPETENCES TECHNIQUES -->
+      <section class="skills-panel" id="skills-technical" data-skill-panel="technical" aria-hidden="true">
+        <div class="skills-panel-inner">
+
+          <div class="skills-panel-header">
+            <div>
+              <p class="section-kicker">Compétences techniques</p>
+              <h2>Application dans les projets et les TP</h2>
+            </div>
+
+            <button class="btn btn-outline skills-close" type="button" data-skill-close>
+              Fermer
+            </button>
+          </div>
+
+          <div class="skills-panel-scroll technical-skills-layout">
+
+            <article class="card technical-intro-card">
+              <div>
+                <p class="section-kicker">Vue d’ensemble</p>
+                <h3>Un socle technique construit par projets</h3>
+              </div>
+
+              <p>
+                Ces compétences regroupent les savoir-faire mobilisés en BUT GEII :
+                concevoir un système, le vérifier, programmer des cartes embarquées,
+                manipuler des instruments de mesure et comprendre des architectures
+                électroniques ou automatisées.
+              </p>
+            </article>
+
+            <div class="skill-topic-shell" data-topic-group>
+              <div class="skill-topic-tabs" aria-label="Compétences techniques détaillées">
+                <button class="skill-topic-tab is-active" type="button" data-topic-target="topic-concevoir" aria-expanded="true">Concevoir</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-verifier" aria-expanded="false">Vérifier</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-programmer" aria-expanded="false">Programmer</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-stm32" aria-expanded="false">STM32</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-automatisme" aria-expanded="false">Automatisme</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-pcb" aria-expanded="false">ISIS / ARES</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-mesures" aria-expanded="false">Électronique</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-energie" aria-expanded="false">Énergie</button>
+              </div>
+
+              <article class="card skill-topic-page is-active" id="topic-concevoir" data-topic-page>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">01</span>
+                    <h3>Concevoir une solution technique</h3>
+                    <p>
+                      Concevoir, pour moi, ce n’est pas seulement dessiner un schéma. C’est d’abord
+                      comprendre le besoin, identifier les fonctions du système, choisir une architecture,
+                      puis justifier les composants et les grandeurs utilisées. Dans le thermomètre de bain,
+                      j’ai dû relier une contrainte simple, signaler une température adaptée, à une solution
+                      électronique composée d’un capteur, de comparateurs, de seuils et de LEDs.
+                    </p>
+                    <p>
+                      Cette compétence est aussi visible dans le kart à hélice : le système demandait de
+                      comprendre la chaîne d’information, le rôle de l’émetteur, du récepteur, de la carte
+                      de traitement et de la partie puissance. Les schémas m’ont aidé à passer d’une idée
+                      générale à une solution exploitable, avec des blocs identifiés et des connexions cohérentes.
+                    </p>
+                    <ul class="clean-list">
+                      <li>Analyse fonctionnelle avec découpage du besoin en fonctions techniques.</li>
+                      <li>Choix de composants en fonction du rôle attendu dans le montage.</li>
+                      <li>Dimensionnement de résistances et réglage de seuils de comparaison.</li>
+                      <li>Préparation d’un prototype compréhensible avant fabrication ou câblage.</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill-proof-strip">
+                    <figure>
+                      <img src="assets/images/C1a.png" alt="Synoptique fonctionnel du thermomètre de bain">
+                      <figcaption>Analyse fonctionnelle</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/tdb-leds-dimensionnement.jpg" alt="Dimensionnement d’une résistance de protection pour une LED">
+                      <figcaption>Dimensionnement LED</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/tdb-comparateurs-seuils.jpg" alt="Comparateurs de seuils du thermomètre de bain">
+                      <figcaption>Seuils comparateurs</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-verifier" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">02</span>
+                    <h3>Vérifier et statuer sur la conformité</h3>
+                    <p>
+                      Vérifier consiste à prouver que le système répond réellement au besoin. J’ai appris
+                      à ne pas seulement observer un montage, mais à définir ce que je veux vérifier,
+                      à choisir un moyen de mesure, à suivre un protocole, puis à comparer le résultat
+                      obtenu avec une exigence du cahier des charges.
+                    </p>
+                    <p>
+                      Sur le thermomètre, les essais portaient sur l’allumage correct des LEDs selon
+                      la température simulée. Sur le kart à hélice, la vérification était plus complète :
+                      mesure de trames NEC à l’oscilloscope, contrôle de la répétitivité, comparaison
+                      des durées mesurées et analyse des écarts. Cette démarche m’a appris à argumenter
+                      une conclusion : conforme, non conforme, ou à corriger.
+                    </p>
+                    <ul class="clean-list">
+                      <li>Définir un objectif d’essai lié à une exigence précise.</li>
+                      <li>Choisir les instruments adaptés : oscilloscope, multimètre, alimentation ou sonde.</li>
+                      <li>Décrire les conditions d’essai pour rendre la mesure reproductible.</li>
+                      <li>Conclure sur la conformité à partir de résultats mesurés.</li>
+                    </ul>
+                  </div>
+
+                  <div class="technical-image-strip">
+                    <figure>
+                      <img src="assets/images/c2a1.png" alt="Montage d’essai du thermomètre de bain">
+                      <figcaption>Procédure d’essai</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/kah-verifier-emetteur-338ms.jpg" alt="Mesure oscilloscope de 338 ms pour données identiques">
+                      <figcaption>Mesure 338 ms</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/kah-verifier-emetteur-110ms.jpg" alt="Mesure oscilloscope de 110 ms pour données nouvelles">
+                      <figcaption>Mesure 110 ms</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-programmer" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">03</span>
+                    <h3>Programmer en C / Arduino</h3>
+                    <p>
+                      La programmation Arduino m’a permis de passer d’un comportement attendu à un
+                      programme structuré. Pour l’horloge d’échecs, il fallait gérer deux joueurs,
+                      deux boutons, deux temps restants, un affichage et un changement d’état à chaque
+                      appui. L’intérêt du projet était de faire fonctionner une logique complète sans
+                      bloquer le microcontrôleur.
+                    </p>
+                    <p>
+                      J’ai donc utilisé une logique d’états : joueur 1 actif, joueur 2 actif, pause,
+                      fin de partie. La fonction <code>millis()</code> permettait de calculer le temps
+                      écoulé sans arrêter le programme, contrairement à une temporisation bloquante.
+                      Cette approche montre que je sais organiser un programme autour d’entrées, de
+                      sorties et de conditions.
+                    </p>
+                    <pre class="code-snippet"><code>if (joueurActif == 1) {
+  tempsJoueur1 -= millis() - dernierInstant;
+}
+
+if (boutonJoueur1Appuye) {
+  joueurActif = 2;
+  dernierInstant = millis();
+}</code></pre>
+                    <div class="skill-chip-row">
+                      <span>Entrées numériques</span>
+                      <span>Variables d’état</span>
+                      <span>millis()</span>
+                      <span>Affichage</span>
+                    </div>
+                  </div>
+
+                  <figure class="project-cover">
+                    <img src="assets/images/arduino-code.jpg" alt="Extrait de code Arduino">
+                    <figcaption>Exemple de programmation Arduino utilisée pour structurer un comportement interactif.</figcaption>
+                  </figure>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-stm32" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">04</span>
+                    <h3>Programmer des systèmes embarqués STM32</h3>
+                    <p>
+                      Les TP STM32 m’ont permis de découvrir une programmation plus proche de l’industrie :
+                      configuration avec STM32CubeMX, développement sous Keil, utilisation de la HAL et
+                      gestion de périphériques variés. J’ai travaillé sur les GPIO, interruptions, PWM,
+                      SPI, I2C, ADC et UART.
+                    </p>
+                    <p>
+                      Le projet final consistait à piloter et superviser un moteur à courant continu.
+                      Cela m’a demandé de relier la partie logicielle à un phénomène physique : mesurer,
+                      commander, afficher ou transmettre des informations. Cette compétence prouve que
+                      je sais m’adapter à une carte plus complexe qu’Arduino.
+                    </p>
+                    <a href="assets/documents/stm32-projet.pdf" target="_blank" class="btn btn-outline">
+                      Ouvrir le compte rendu STM32
+                    </a>
+                  </div>
+
+                  <figure class="project-cover">
+                    <img src="assets/images/stm32-moteur-montage.jpg" alt="Montage STM32 avec moteur à courant continu">
+                    <figcaption>Supervision d’un moteur avec STM32.</figcaption>
+                  </figure>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-automatisme" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">05</span>
+                    <h3>Analyser et programmer un système automatisé</h3>
+                    <p>
+                      En automatisme industriel, j’ai travaillé sur la plateforme CPLab FESTO avec une
+                      station de presse pneumatique pilotée par automate Siemens ET200SP. Le travail
+                      consistait à comprendre les capteurs, les actionneurs, les sécurités, puis à
+                      représenter le fonctionnement avec des outils industriels.
+                    </p>
+                    <p>
+                      Le GRAFCET m’a permis de décrire la production normale étape par étape. Le GEMMA
+                      m’a aidé à prendre en compte les modes de marche et d’arrêt. Enfin, la programmation
+                      Ladder / CONT dans TIA Portal a servi à traduire cette analyse en logique exécutable.
+                    </p>
+                    <div class="skill-chip-row">
+                      <span>TIA Portal</span>
+                      <span>GRAFCET</span>
+                      <span>GEMMA</span>
+                      <span>Ladder</span>
+                    </div>
+                  </div>
+
+                  <div class="technical-image-strip">
+                    <figure>
+                      <img src="assets/images/automatisme-station-presse.jpg" alt="Station de presse pneumatique utilisée en TP d’automatisme">
+                      <figcaption>Station presse</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/automatisme-grafcet-presse.jpg" alt="GRAFCET de production normale de la station de presse pneumatique">
+                      <figcaption>GRAFCET</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/automatisme-gemma-presse.jpg" alt="GEMMA de la station de presse pneumatique">
+                      <figcaption>GEMMA</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-pcb" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">06</span>
+                    <h3>Concevoir un schéma et router une carte</h3>
+                    <p>
+                      Avec ISIS et ARES, j’ai travaillé la continuité entre conception et fabrication.
+                      Le schéma sous ISIS permet de représenter le fonctionnement électrique, tandis
+                      que le routage sous ARES oblige à prendre en compte le placement réel, les pistes,
+                      les connecteurs et les contraintes mécaniques.
+                    </p>
+                    <p>
+                      Cette compétence montre que je sais produire un document exploitable, pas seulement
+                      un montage de principe. Le routage du récepteur du kart à hélice m’a notamment
+                      demandé de penser à la lisibilité, à l’organisation des composants et à la cohérence
+                      avec le dossier de conception.
+                    </p>
+                  </div>
+
+                  <div class="technical-image-strip">
+                    <figure>
+                      <img src="assets/images/kah-schema-traitement.png" alt="Schéma électronique du bloc traitement sous ISIS">
+                      <figcaption>Schéma ISIS</figcaption>
+                    </figure>
+
+                    <figure>
+                      <img src="assets/images/kah-routage-recepteur.png" alt="Routage de la carte électronique récepteur sous ARES">
+                      <figcaption>Routage ARES</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-mesures" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">07</span>
+                    <h3>Pratiquer l’électronique analogique</h3>
+                    <p>
+                      Les TP d’électronique analogique m’ont appris à utiliser les appareils de mesure
+                      de manière rigoureuse : générateur basse fréquence, oscilloscope, alimentation
+                      stabilisée et multimètre. L’objectif était d’observer un signal, de mesurer une
+                      grandeur et d’interpréter le comportement du montage.
+                    </p>
+                    <p>
+                      Cette compétence est importante parce qu’un schéma correct ne suffit pas toujours :
+                      il faut savoir vérifier la réalité du montage, repérer un mauvais câblage, un seuil
+                      mal réglé ou une valeur incohérente. Les mesures donnent une preuve concrète du
+                      fonctionnement.
+                    </p>
+                  </div>
+
+                  <figure class="project-cover">
+                    <img src="assets/images/tp-electronique-montage.jpg" alt="TP d’électronique analogique avec GBF, oscilloscope et platine de câblage">
+                    <figcaption>Mesure et analyse de signaux en TP.</figcaption>
+                  </figure>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-energie" data-topic-page hidden>
+                <div class="skill-topic-layout">
+                  <div class="skill-topic-copy">
+                    <span class="sport-step">08</span>
+                    <h3>Comprendre l’énergie électrique</h3>
+                    <p>
+                      En énergie électrique, j’ai étudié des systèmes monophasés et triphasés avec une
+                      alimentation TBTS. Les manipulations m’ont permis de mesurer tensions, courants
+                      et puissances, puis de comprendre les différences entre les montages étoile et
+                      triangle.
+                    </p>
+                    <p>
+                      Cette compétence complète les projets électroniques : elle m’aide à mieux comprendre
+                      l’alimentation des systèmes, les grandeurs électriques mises en jeu et l’importance
+                      de travailler avec méthode lorsqu’on manipule une installation.
+                    </p>
+                  </div>
+
+                  <figure class="project-cover">
+                    <img src="assets/images/energie-montage-alimentation.jpg" alt="TP d’énergie sur réseau triphasé avec alimentation TBTS">
+                    <figcaption>TP triphasé avec alimentation TBTS.</figcaption>
+                  </figure>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPETENCES TRANSVERSALES -->
+      <section class="skills-panel" id="skills-transversal" data-skill-panel="transversal" aria-hidden="true">
+        <div class="skills-panel-inner">
+
+          <div class="skills-panel-header">
+            <div>
+              <p class="section-kicker">Compétences transversales</p>
+              <h2>Travailler, communiquer et progresser en projet</h2>
+            </div>
+
+            <button class="btn btn-outline skills-close" type="button" data-skill-close>
+              Fermer
+            </button>
+          </div>
+
+          <div class="skills-panel-scroll">
+
+            <article class="card technical-intro-card">
+              <div>
+                <p class="section-kicker">Vue d’ensemble</p>
+                <h3>Des compétences construites toute l’année</h3>
+              </div>
+
+              <p>
+                Les compétences transversales se sont développées dans les TP, les SAE,
+                les comptes rendus et les projets. Elles ne remplacent pas la technique :
+                elles permettent de mieux travailler, de mieux expliquer et de progresser
+                dans une équipe.
+              </p>
+            </article>
+
+            <div class="skill-topic-shell" data-topic-group>
+              <div class="skill-topic-tabs" aria-label="Compétences transversales détaillées">
+                <button class="skill-topic-tab is-active" type="button" data-topic-target="topic-equipe" aria-expanded="true">Travail en équipe</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-communication" aria-expanded="false">Communication technique</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-autonomie" aria-expanded="false">Autonomie</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-organisation" aria-expanded="false">Organisation</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-projet" aria-expanded="false">Gestion de projet</button>
+                <button class="skill-topic-tab" type="button" data-topic-target="topic-problemes" aria-expanded="false">Résolution de problèmes</button>
+              </div>
+
+              <article class="card skill-topic-page is-active" id="topic-equipe" data-topic-page>
+                <div class="skill-topic-copy">
+                  <span class="sport-step">01</span>
+                  <h3>Travailler en équipe pendant les TP et les SAE</h3>
+                  <p>
+                    Le travail en équipe a été présent tout au long de l’année, que ce soit
+                    en TP, en SAE ou dans les projets plus longs. Il ne s’agissait pas seulement
+                    de partager les tâches, mais de construire une démarche commune : comprendre
+                    le sujet ensemble, répartir les rôles, mettre en commun les résultats et
+                    s’assurer que chaque partie du travail reste cohérente avec l’objectif final.
+                  </p>
+                  <p>
+                    Dans les TP, l’équipe permettait de gagner en efficacité : une personne pouvait
+                    câbler ou manipuler pendant qu’une autre relevait les mesures ou vérifiait le
+                    protocole. Dans les SAE, la collaboration était encore plus importante, car il
+                    fallait organiser le travail sur plusieurs séances, faire des choix techniques
+                    communs et assembler les contributions de chacun dans un rendu final.
+                  </p>
+                  <ul class="clean-list">
+                    <li>Répartir les rôles selon les besoins du moment : câblage, mesure, rédaction ou recherche.</li>
+                    <li>Échanger régulièrement pour éviter que chaque partie avance séparément.</li>
+                    <li>Accepter les remarques du groupe et adapter son travail.</li>
+                    <li>Produire un résultat final cohérent, même lorsque plusieurs personnes ont contribué.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-communication" data-topic-page hidden>
+                <div class="skill-topic-copy">
+                  <span class="sport-step">02</span>
+                  <h3>Communiquer une démarche technique</h3>
+                  <p>
+                    La communication technique consiste à expliquer clairement ce qui a été fait,
+                    pourquoi cela a été fait et ce que les résultats montrent. En BUT GEII, cette
+                    compétence est importante dans les comptes rendus, les soutenances et les échanges
+                    pendant les TP.
+                  </p>
+                  <p>
+                    J’ai appris à présenter un choix de composant, une mesure d’oscilloscope, un schéma
+                    ou une conclusion de conformité de façon compréhensible. Cela demande de ne pas
+                    seulement donner un résultat, mais de relier ce résultat à la méthode utilisée et
+                    au cahier des charges.
+                  </p>
+                  <ul class="clean-list">
+                    <li>Décrire une démarche dans un ordre logique.</li>
+                    <li>Utiliser des schémas, captures et mesures comme preuves.</li>
+                    <li>Employer un vocabulaire technique précis sans rendre l’explication confuse.</li>
+                    <li>Présenter une conclusion claire : ce qui fonctionne, ce qui reste à améliorer.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-autonomie" data-topic-page hidden>
+                <div class="skill-topic-copy">
+                  <span class="sport-step">03</span>
+                  <h3>Gagner en autonomie</h3>
+                  <p>
+                    L’autonomie s’est développée lorsque je devais avancer sans attendre une réponse
+                    immédiate. Cela m’a demandé de relire le sujet, de chercher dans les documents,
+                    de tester une hypothèse, puis de demander de l’aide seulement après avoir identifié
+                    précisément le blocage.
+                  </p>
+                  <p>
+                    Cette autonomie a été utile en programmation, en électronique et en automatisme.
+                    Par exemple, lorsqu’un montage ne réagissait pas comme prévu, je devais vérifier
+                    l’alimentation, les connexions, les valeurs de composants et les mesures avant
+                    de conclure. Cela m’a appris à avancer avec méthode.
+                  </p>
+                  <ul class="clean-list">
+                    <li>Rechercher une information dans un document technique ou un compte rendu.</li>
+                    <li>Tester progressivement au lieu de modifier tout le système en même temps.</li>
+                    <li>Identifier clairement un problème avant de demander une correction.</li>
+                    <li>Corriger une erreur et vérifier que la correction fonctionne réellement.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-organisation" data-topic-page hidden>
+                <div class="skill-topic-copy">
+                  <span class="sport-step">04</span>
+                  <h3>S’organiser dans le temps</h3>
+                  <p>
+                    L’organisation a été nécessaire pour respecter les délais et éviter de se retrouver
+                    avec un compte rendu ou une démonstration incomplète. Dans les projets, il fallait
+                    distinguer les étapes : comprendre le besoin, concevoir, réaliser, tester, corriger
+                    puis présenter.
+                  </p>
+                  <p>
+                    J’ai aussi appris à garder des traces du travail : résultats de mesure, captures
+                    de schémas, photos de montage, remarques sur les erreurs rencontrées. Ces éléments
+                    facilitent la rédaction et montrent la progression réelle du projet.
+                  </p>
+                  <ul class="clean-list">
+                    <li>Découper un projet en étapes simples et vérifiables.</li>
+                    <li>Prioriser ce qui bloque la suite du travail.</li>
+                    <li>Garder des preuves pendant l’avancement, pas seulement à la fin.</li>
+                    <li>Préparer les rendus progressivement pour éviter la précipitation.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-projet" data-topic-page hidden>
+                <div class="skill-topic-copy">
+                  <span class="sport-step">05</span>
+                  <h3>Suivre une logique de projet</h3>
+                  <p>
+                    La gestion de projet consiste à relier chaque action à l’objectif final. Dans les
+                    SAE, il ne suffisait pas de réussir une manipulation isolée : il fallait que les
+                    choix techniques, les essais et les documents produits répondent au cahier des charges.
+                  </p>
+                  <p>
+                    Cette compétence m’a aidé à comprendre l’importance des documents comme le dossier
+                    de conception, le dossier de fabrication ou le dossier de validation. Ils permettent
+                    de suivre l’avancement et de prouver que la solution proposée correspond au besoin.
+                  </p>
+                  <ul class="clean-list">
+                    <li>Relier les tâches au cahier des charges.</li>
+                    <li>Documenter les choix pour pouvoir les justifier.</li>
+                    <li>Vérifier que le prototype correspond à ce qui avait été prévu.</li>
+                    <li>Construire un rendu final lisible pour quelqu’un qui n’a pas suivi toutes les séances.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="card skill-topic-page" id="topic-problemes" data-topic-page hidden>
+                <div class="skill-topic-copy">
+                  <span class="sport-step">06</span>
+                  <h3>Résoudre des problèmes progressivement</h3>
+                  <p>
+                    La résolution de problèmes a été mobilisée dans presque tous les projets : montage
+                    qui ne fonctionne pas, mesure incohérente, programme qui ne réagit pas correctement
+                    ou résultat différent de l’attendu. J’ai appris à éviter les conclusions trop rapides
+                    et à rechercher la cause étape par étape.
+                  </p>
+                  <p>
+                    La méthode la plus efficace a souvent été de revenir aux bases : vérifier l’alimentation,
+                    contrôler les connexions, tester une partie du programme, comparer avec le schéma,
+                    puis refaire une mesure. Cette démarche m’a permis de progresser techniquement,
+                    mais aussi de gagner en confiance.
+                  </p>
+                  <ul class="clean-list">
+                    <li>Identifier le symptôme exact avant de modifier le système.</li>
+                    <li>Tester les causes possibles une par une.</li>
+                    <li>Comparer le résultat obtenu au comportement attendu.</li>
+                    <li>Expliquer la correction et vérifier qu’elle ne crée pas un nouveau problème.</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
     </div>
   </section>

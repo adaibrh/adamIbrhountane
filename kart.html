@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -49,15 +49,16 @@
       <h1>Kart à hélice télécommandé</h1>
 
       <p>
-        Conception d’un système embarqué capable de piloter un kart à hélice
-        grâce à une transmission infrarouge utilisant le protocole NEC.
+        Conception d’un système embarqué qui reçoit des trames infrarouges NEC,
+        les décode avec un ATmega328P et pilote le moteur, la direction et le klaxon du kart.
       </p>
 
       <div class="project-meta">
-        <span>Transmission IR</span>
+        <span>BUT GEII</span>
+        <span>TSOP4438</span>
+        <span>ATmega328P</span>
+        <span>PWM moteur / servo</span>
         <span>Protocole NEC</span>
-        <span>Émetteur / Récepteur</span>
-        <span>Motorisation + direction</span>
       </div>
 
     </div>
@@ -70,7 +71,7 @@
       <figure class="card project-cover">
         <img src="assets/images/kah_cover.png" alt="Kart à hélice télécommandé">
         <figcaption>
-          Prototype du kart à hélice télécommandé réalisé dans le cadre du projet BUT GEII.
+          Prototype du kart à hélice télécommandé : une carte émetteur envoie les ordres, la carte récepteur les transforme en actions.
         </figcaption>
       </figure>
 
@@ -84,27 +85,28 @@
       <div class="sport-layout">
 
         <article class="card sport-intro">
-          <p class="section-kicker">Introduction</p>
-          <h2>Contexte du projet</h2>
+          <p class="section-kicker">Projet SAÉ</p>
+          <h2>Transformer une trame infrarouge en mouvement</h2>
 
           <p>
-            Ce projet s’inscrit dans ma formation en BUT GEII, où l’objectif était
-            de concevoir un système mêlant électronique, programmation embarquée,
-            transmission de données et pilotage d’actionneurs.
+            Le projet consistait à concevoir un kart à hélice télécommandé.
+            L’émetteur lit les commandes utilisateur, les encode dans une trame
+            NEC, puis les transmet en infrarouge. Le récepteur embarqué doit
+            vérifier la trame reçue avant de commander le kart.
           </p>
 
           <p>
-            Le système étudié est un kart à hélice télécommandé. Il repose sur une
-            liaison infrarouge entre une partie émetteur, utilisée par l’utilisateur,
-            et une partie récepteur intégrée au kart. Cette architecture permet
-            de transmettre des commandes puis de les interpréter pour contrôler
-            le déplacement du véhicule.
+            Ma partie s’est surtout concentrée sur le récepteur : architecture
+            électronique, cœur de traitement avec l’ATmega328P, gestion de
+            l’énergie, choix des broches et logique de sécurité. Le but n’était
+            pas seulement de faire tourner un moteur, mais de construire une
+            chaîne complète entre réception, décodage et action.
           </p>
         </article>
 
         <aside class="quote-card project-summary">
-          <span>IR</span>
-          <p>Commander un kart à distance avec une liaison infrarouge fiable.</p>
+          <span>58 h</span>
+          <p>Durée du projet consacrée à la conception, la programmation et la vérification.</p>
         </aside>
 
       </div>
@@ -112,57 +114,88 @@
     </div>
   </section>
 
-  <!-- OBJECTIF ET FONCTIONNEMENT -->
+  <!-- PRINCIPE TECHNIQUE -->
   <section class="section section-soft">
     <div class="container">
+
+      <div class="section-header">
+        <h2>Principe technique retenu</h2>
+        <p>La commande utilisateur est compactée dans une trame NEC, puis convertie en signaux PWM et sorties logiques.</p>
+      </div>
 
       <div class="cards-grid sport-cards">
 
         <article class="card">
           <span class="sport-step">01</span>
-          <h2>Objectif du projet</h2>
+          <h2>Une télécommande et un récepteur embarqué</h2>
 
           <p>
-            Le but du projet était de concevoir et valider un kart à hélice
-            capable d’être piloté à distance. Le système devait permettre
-            de contrôler la vitesse du moteur, la direction des roues
-            et une commande de klaxon.
+            Le système est séparé en deux cartes. L’émetteur récupère la vitesse,
+            la direction et le bouton klaxon. Le récepteur reçoit la trame
+            infrarouge, vérifie l’adresse de l’équipe, puis applique les ordres
+            au kart.
           </p>
 
-          <p>
-            L’enjeu était de passer d’un besoin fonctionnel à une solution
-            technique complète, en tenant compte des contraintes du cahier
-            des charges, du matériel disponible et de la fiabilité attendue.
-          </p>
+          <div class="kah-signal-grid" aria-label="Informations transmises">
+            <div>
+              <span>Vitesse</span>
+              <strong>3 bits</strong>
+              <p>8 niveaux moteur</p>
+            </div>
+
+            <div>
+              <span>Direction</span>
+              <strong>5 bits</strong>
+              <p>31 positions utiles</p>
+            </div>
+
+            <div>
+              <span>Klaxon</span>
+              <strong>1 bit</strong>
+              <p>Activation sonore</p>
+            </div>
+          </div>
         </article>
 
         <article class="card">
           <span class="sport-step">02</span>
-          <h2>Fonctionnement général</h2>
+          <h2>Traitement par ATmega328P</h2>
 
           <p>
-            Le projet est organisé autour de deux sous-systèmes principaux :
-            un émetteur et un récepteur. L’émetteur génère des commandes,
-            les encode sous forme de trames infrarouges, puis les transmet
-            au kart.
+            Le récepteur utilise un TSOP4438 accordé à 38 kHz pour recevoir les
+            trames NEC. Le signal logique est ensuite traité par un ATmega328P,
+            choisi pour sa fréquence de 16 MHz, ses interruptions, ses timers
+            PWM et son intégration simple en boîtier traversant.
           </p>
 
-          <p>
-            Le récepteur reçoit ces trames, les décode grâce au protocole NEC
-            et les traduit en actions : contrôle du moteur, gestion de la
-            direction et activation du klaxon.
-          </p>
+          <div class="tdb-metric-grid">
+            <div>
+              <span>IR</span>
+              <strong>38 kHz</strong>
+            </div>
+
+            <div>
+              <span>MCU</span>
+              <strong>16 MHz</strong>
+            </div>
+          </div>
+
+          <ul class="clean-list">
+            <li>Adresse d’équipe vérifiée avant d’appliquer les commandes.</li>
+            <li>Arrêt moteur si la trame est absente, invalide ou hors équipe.</li>
+            <li>PWM générés par les timers pour le moteur et le servomoteur.</li>
+          </ul>
         </article>
 
         <article class="card">
           <span class="sport-step">03</span>
-          <h2>Architecture du système</h2>
+          <h2>Travail réalisé sur traitement et énergie</h2>
 
           <ul class="clean-list">
-            <li><strong>Émetteur :</strong> acquisition des commandes utilisateur et émission NEC.</li>
-            <li><strong>Récepteur :</strong> réception des trames, décodage et commande du kart.</li>
-            <li><strong>Kart :</strong> intégration du moteur, de la direction et de l’alimentation.</li>
-            <li><strong>Interface :</strong> commandes de pilotage et bouton de klaxon.</li>
+            <li>Choix et dimensionnement du cœur de traitement du récepteur.</li>
+            <li>Affectation des broches : IR, PWM moteur, PWM servo, LED et buzzer.</li>
+            <li>Vérification des contraintes temporelles du traitement en temps réel.</li>
+            <li>Dimensionnement de l’alimentation LiPo 2S et exploitation du BEC de l’ESC.</li>
           </ul>
         </article>
 
@@ -171,51 +204,66 @@
     </div>
   </section>
 
-  <!-- EMETTEUR / RECEPTEUR -->
+  <!-- ARCHITECTURE -->
   <section class="section">
     <div class="container">
 
       <div class="section-header">
-        <h2>Émetteur et récepteur</h2>
-        <p>Le système est composé de deux parties complémentaires qui communiquent par infrarouge.</p>
+        <h2>Architecture du système</h2>
+        <p>Le récepteur est organisé autour de quatre blocs : acquisition, traitement, action et énergie.</p>
       </div>
 
-      <div class="cards-grid sport-cards">
+      <figure class="card project-cover mb-lg">
+        <img src="assets/images/kah_c1.png" alt="Architecture fonctionnelle du kart à hélice télécommandé">
+        <figcaption>
+          Architecture du système : réception infrarouge, traitement numérique, pilotage des actionneurs et alimentation embarquée.
+        </figcaption>
+      </figure>
+
+      <div class="cards-grid sport-cards tdb-architecture-grid">
 
         <article class="card">
-          <span class="sport-step">Émetteur</span>
-          <h2>Transmission des commandes</h2>
-
+          <span class="sport-step">Acquisition</span>
+          <h2>Recevoir les trames NEC</h2>
           <p>
-            L’émetteur correspond à la partie utilisée pour envoyer les ordres
-            au véhicule. Il récupère les actions de l’utilisateur, puis les convertit
-            en trames infrarouges compatibles avec le protocole NEC.
+            Le TSOP4438 reçoit la porteuse infrarouge à 38 kHz et fournit un
+            signal logique démodulé compatible avec l’entrée du microcontrôleur.
+            Un condensateur de découplage est placé près du connecteur pour
+            stabiliser l’alimentation du capteur déporté.
           </p>
-
-          <ul class="clean-list">
-            <li>Portée infrarouge visée supérieure ou égale à 10 m.</li>
-            <li>Autonomie visée supérieure ou égale à 60 min.</li>
-            <li>Deux interfaces homme-machine et un bouton klaxon.</li>
-            <li>Émission des commandes sous forme de trames NEC.</li>
-          </ul>
         </article>
 
         <article class="card">
-          <span class="sport-step">Récepteur</span>
-          <h2>Pilotage du kart</h2>
-
+          <span class="sport-step">Traitement</span>
+          <h2>Décoder et sécuriser</h2>
           <p>
-            Le récepteur est intégré au kart. Il reçoit les trames envoyées
-            par l’émetteur, les interprète, puis déclenche les actions associées
-            sur le véhicule.
+            L’ATmega328P extrait le numéro d’équipe, la direction, la vitesse et
+            le klaxon depuis les octets NEC. Si la trame est invalide ou si
+            l’adresse ne correspond pas à l’équipe 21, la puissance moteur est
+            forcée à zéro.
           </p>
+        </article>
 
-          <ul class="clean-list">
-            <li>Réception et décodage des trames infrarouges.</li>
-            <li>Utilisation du protocole NEC.</li>
-            <li>Autonomie visée supérieure ou égale à 15 min à mi-puissance.</li>
-            <li>Commande du moteur et de la direction.</li>
-          </ul>
+        <article class="card">
+          <span class="sport-step">Action</span>
+          <h2>Piloter moteur, roues et klaxon</h2>
+          <p>
+            Le moteur brushless est piloté par un ESC 10A UBEC avec un PWM de
+            période 20 ms. Le servomoteur HS322HD reçoit lui aussi un signal PWM
+            de type servo. Le buzzer est commandé à 4 kHz avec un rapport
+            cyclique de 50 %.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Énergie</span>
+          <h2>Alimenter le récepteur</h2>
+          <p>
+            L’accumulateur LiPo 2S alimente le contrôleur brushless. Le BEC
+            intégré à l’ESC fournit ensuite le 5 V régulé pour l’électronique du
+            récepteur, le capteur IR, le microcontrôleur, les LED, le buzzer et
+            le servomoteur.
+          </p>
         </article>
 
       </div>
@@ -223,140 +271,199 @@
     </div>
   </section>
 
-  <!-- TECHNOLOGIES -->
+  <!-- ETAPES -->
   <section class="section section-soft">
     <div class="container">
 
       <div class="section-header">
-        <h2>Technologies utilisées</h2>
-        <p>Les principaux éléments techniques mobilisés pour concevoir et valider le système.</p>
+        <h2>Étapes de conception</h2>
+        <p>Des points techniques détaillés, avec un focus sur le récepteur et le traitement des commandes.</p>
       </div>
 
-      <div class="cards-grid">
+      <div class="skill-topic-shell kah-topic-shell" data-topic-group>
+        <div class="skill-topic-tabs" aria-label="Étapes techniques du kart à hélice">
+          <button class="skill-topic-tab is-active" type="button" data-topic-target="kah-topic-ir" aria-expanded="true">Réception IR</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="kah-topic-traitement" aria-expanded="false">Traitement</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="kah-topic-action" aria-expanded="false">Action</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="kah-topic-energie" aria-expanded="false">Énergie</button>
+          <button class="skill-topic-tab" type="button" data-topic-target="kah-topic-routage" aria-expanded="false">Routage</button>
+        </div>
 
-        <article class="card">
-          <h3>Transmission infrarouge</h3>
-          <p>
-            Mise en place d’une communication sans fil courte portée entre
-            la télécommande et le kart.
-          </p>
+        <article class="card skill-topic-page is-active" id="kah-topic-ir" data-topic-page>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">01</span>
+              <h3>Recevoir une trame NEC exploitable</h3>
+              <p>
+                Le récepteur infrarouge retenu est le TSOP4438. Il a été choisi
+                parce qu’il est accordé à 38 kHz, compatible avec le protocole
+                NEC, alimentable en 5 V et plus intéressant que l’alternative
+                étudiée pour la portée, la géométrie de réception et le coût.
+              </p>
+
+              <p>
+                Le capteur fournit un signal logique démodulé directement lisible
+                par l’ATmega328P. Comme il est déporté du PCB, un condensateur de
+                100 nF près du connecteur limite les perturbations sur son
+                alimentation.
+              </p>
+
+              <div class="skill-chip-row">
+                <span>TSOP4438</span>
+                <span>38 kHz</span>
+                <span>Signal logique 5 V</span>
+                <span>Découplage 100 nF</span>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/kah-schema-traitement.png" alt="Schéma électronique du récepteur et du traitement du kart à hélice">
+              <figcaption>
+                Le signal du capteur IR entre dans le microcontrôleur, qui décode ensuite la trame NEC.
+              </figcaption>
+            </figure>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Protocole NEC</h3>
-          <p>
-            Encodage, émission, réception et décodage de trames pour identifier
-            les commandes envoyées.
-          </p>
+        <article class="card skill-topic-page" id="kah-topic-traitement" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">02</span>
+              <h3>Décoder la trame et extraire les ordres</h3>
+              <p>
+                Le traitement logiciel sépare les informations contenues dans les
+                octets NEC. L’octet d’adresse contient le numéro d’équipe sur 7
+                bits et l’état du klaxon sur le bit de poids fort. L’octet de
+                données contient la vitesse sur 3 bits et la direction sur 5 bits.
+              </p>
+
+              <p>
+                Côté récepteur, la boucle principale vérifie d’abord que la trame
+                est valide et que le numéro d’équipe vaut 21. Si ce n’est pas le
+                cas, le moteur brushless est coupé et le témoin de réception est
+                éteint. Cette sécurité évite qu’un signal absent ou incorrect
+                laisse le kart continuer à avancer.
+              </p>
+
+              <div class="kah-bit-grid" aria-label="Répartition des bits NEC">
+                <div><span>Adresse</span><strong>7 bits équipe</strong><em>+ 1 bit klaxon</em></div>
+                <div><span>Donnée</span><strong>3 bits vitesse</strong><em>+ 5 bits direction</em></div>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/kah-architecture-informatique-emetteur.jpg" alt="Architecture informatique de l’émetteur du kart à hélice">
+              <figcaption>
+                Les données utilisateur sont compactées avant transmission, puis séparées côté récepteur.
+              </figcaption>
+            </figure>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Électronique embarquée</h3>
-          <p>
-            Intégration de composants électroniques dans un système mobile
-            soumis à des contraintes d’autonomie et de place.
-          </p>
+        <article class="card skill-topic-page" id="kah-topic-action" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">03</span>
+              <h3>Convertir les données en actions physiques</h3>
+              <p>
+                La commande moteur est envoyée à l’ESC sous forme d’un PWM de
+                période 20 ms. Les 3 bits de vitesse donnent 8 niveaux ; l’impulsion
+                varie de 1000 µs pour l’arrêt à 2000 µs pour la pleine puissance.
+              </p>
+
+              <p>
+                La direction utilise le même principe de signal servo avec le
+                servomoteur HS322HD. Les 5 bits de direction donnent 31 positions
+                utiles afin de conserver une position centrale nette. Le klaxon
+                est généré à 4 kHz par timer, avec un rapport cyclique de 50 %.
+              </p>
+
+              <div class="tdb-led-table" role="list" aria-label="Actions du récepteur">
+                <div role="listitem"><span>Moteur</span><strong>8 niveaux</strong><em>PWM 1000 à 2000 µs</em></div>
+                <div role="listitem"><span>Direction</span><strong>31 positions</strong><em>Pas utile d’environ 33,3 µs</em></div>
+                <div role="listitem"><span>Klaxon</span><strong>4 kHz</strong><em>Signal carré, 50 %</em></div>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/kah_c2.png" alt="Schéma électronique du récepteur du kart à hélice">
+              <figcaption>
+                Le récepteur transforme les ordres numériques en PWM moteur, PWM direction et commande buzzer.
+              </figcaption>
+            </figure>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Pilotage moteur</h3>
-          <p>
-            Commande de la propulsion et de la direction pour obtenir
-            un comportement cohérent du véhicule.
-          </p>
+        <article class="card skill-topic-page" id="kah-topic-energie" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">04</span>
+              <h3>Dimensionner l’alimentation embarquée</h3>
+              <p>
+                Le kart utilise deux accumulateurs LiPo 2S : une batterie de 350
+                mAh côté émetteur et une batterie de 1000 mAh côté récepteur.
+                Pour le récepteur, la consommation dominante vient du moteur
+                brushless, estimé à 2,5 A, puis du servomoteur à environ 180 mA.
+              </p>
+
+              <p>
+                L’ESC 10A UBEC joue un rôle central : il alimente le moteur et
+                fournit aussi le 5 V régulé via son BEC. Cela évite d’ajouter un
+                régulateur linéaire séparé pour le récepteur.
+              </p>
+
+              <div class="skill-chip-row">
+                <span>LiPo 2S</span>
+                <span>1000 mAh récepteur</span>
+                <span>ESC 10A UBEC</span>
+                <span>5 V BEC</span>
+              </div>
+            </div>
+
+            <figure class="project-cover">
+              <img src="assets/images/kah_c1.png" alt="Synoptique de l’énergie du kart à hélice">
+              <figcaption>
+                Le bloc énergie alimente le contrôleur brushless et l’électronique embarquée.
+              </figcaption>
+            </figure>
+          </div>
         </article>
 
-      </div>
+        <article class="card skill-topic-page" id="kah-topic-routage" data-topic-page hidden>
+          <div class="skill-topic-layout">
+            <div class="skill-topic-copy">
+              <span class="sport-step">05</span>
+              <h3>Préparer une carte récepteur intégrable</h3>
+              <p>
+                Le PCB du récepteur devait rester dans un format de 100 mm par
+                75 mm, avec des trous de fixation de 3 mm placés à 6 mm des bords.
+                Le routage a donc dû tenir compte des composants déportés, des
+                sorties PWM et des contraintes mécaniques du châssis.
+              </p>
 
-    </div>
-  </section>
+              <p>
+                Les choix de broches ont aussi été faits en fonction du routage :
+                PC2 pour le récepteur IR, PC1 pour la LED d’alimentation, PC0
+                pour la LED de trame valide, PB1 pour le buzzer, PD3 pour le PWM
+                moteur et PD5 pour le PWM servo.
+              </p>
 
-  <!-- CONTRAINTES -->
-  <section class="section">
-    <div class="container">
+              <ul class="clean-list">
+                <li>PC2 : récepteur infrarouge.</li>
+                <li>PD3 : commande PWM moteur brushless.</li>
+                <li>PD5 : commande PWM servomoteur de direction.</li>
+                <li>PB1 : commande du buzzer.</li>
+              </ul>
+            </div>
 
-      <div class="section-header">
-        <h2>Contraintes du cahier des charges</h2>
-        <p>Les exigences principales qui ont guidé les choix techniques du projet.</p>
-      </div>
-
-      <div class="cards-grid sport-cards">
-
-        <article class="card">
-          <span class="sport-step">Émetteur</span>
-          <h2>Contraintes de commande</h2>
-
-          <ul class="clean-list">
-            <li>Portée infrarouge supérieure ou égale à 10 m.</li>
-            <li>Autonomie supérieure ou égale à 60 min.</li>
-            <li>Présence de deux interfaces homme-machine.</li>
-            <li>Ajout d’un bouton poussoir pour le klaxon.</li>
-          </ul>
+            <figure class="project-cover">
+              <img src="assets/images/kah-routage-recepteur.png" alt="Routage ARES de la carte récepteur du kart à hélice">
+              <figcaption>
+                Routage de la carte récepteur avec microcontrôleur, connecteurs, indicateurs et sorties actionneurs.
+              </figcaption>
+            </figure>
+          </div>
         </article>
-
-        <article class="card">
-          <span class="sport-step">Récepteur</span>
-          <h2>Contraintes embarquées</h2>
-
-          <ul class="clean-list">
-            <li>Réception fiable des trames.</li>
-            <li>Décodage du protocole NEC.</li>
-            <li>Autonomie supérieure ou égale à 15 min à mi-puissance.</li>
-            <li>Contrôle du moteur et de la direction.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <span class="sport-step">Projet</span>
-          <h2>Contraintes globales</h2>
-
-          <ul class="clean-list">
-            <li>Coût total inférieur à 160 € TTC.</li>
-            <li>Temps de développement prévu : 58 h.</li>
-            <li>Système cohérent, intégrable et testable.</li>
-            <li>Documentation complète du projet.</li>
-          </ul>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- IMAGES -->
-  <section class="section section-soft">
-    <div class="container">
-
-      <div class="section-header">
-        <h2>Illustrations du projet</h2>
-        <p>Quelques éléments visuels issus de la conception et de la réalisation du kart.</p>
-      </div>
-
-      <div class="exercise-grid">
-
-        <figure class="card exercise-card">
-          <img src="assets/images/kah_cover.png" alt="Prototype du kart à hélice">
-          <figcaption>
-            <strong>Prototype</strong>
-            <span>Vue globale du kart à hélice télécommandé.</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card exercise-card">
-          <img src="assets/images/kah_c1.png" alt="Architecture ou conception du kart à hélice">
-          <figcaption>
-            <strong>Conception</strong>
-            <span>Travail d’analyse et de structuration du système.</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card exercise-card">
-          <img src="assets/images/kah_c2.png" alt="Élément technique du projet kart à hélice">
-          <figcaption>
-            <strong>Partie technique</strong>
-            <span>Étude des choix techniques autour du pilotage du kart.</span>
-          </figcaption>
-        </figure>
 
       </div>
 
@@ -426,13 +533,13 @@
            class="card skill-card"
            style="text-decoration: none; color: inherit;">
 
-          <div class="skill-icon">🔧</div>
+          <div class="skill-icon">C1</div>
 
           <h3>Concevoir</h3>
 
           <p>
-            Analyser le besoin, choisir une architecture technique,
-            étudier les contraintes et préparer la réalisation du système.
+            Architecture récepteur, choix de l’ATmega328P, affectation des broches,
+            dimensionnement énergie et préparation du routage.
           </p>
 
         </a>
@@ -441,13 +548,13 @@
            class="card skill-card"
            style="text-decoration: none; color: inherit;">
 
-          <div class="skill-icon">✅</div>
+          <div class="skill-icon">C2</div>
 
           <h3>Vérifier</h3>
 
           <p>
-            Tester le fonctionnement, valider la transmission,
-            contrôler les performances et vérifier la conformité aux exigences.
+            Vérification des trames NEC, contrôle des périodes d’émission,
+            sécurité en cas de trame invalide et conformité des commandes.
           </p>
 
         </a>
@@ -466,20 +573,19 @@
         <h2>Ce que ce projet m’a apporté</h2>
 
         <p>
-          Le projet du kart à hélice m’a permis de mieux comprendre la manière
-          dont un système embarqué complet est conçu, documenté puis validé.
-          Il ne s’agissait pas seulement de faire fonctionner un moteur, mais de
-          construire une solution cohérente intégrant une commande utilisateur,
-          une transmission infrarouge, un décodage de trames et une partie
-          puissance embarquée.
+          Le projet du kart à hélice m’a permis de mieux comprendre la conception
+          d’un système embarqué complet. La difficulté principale n’était pas
+          seulement de commander un moteur, mais de relier une trame infrarouge
+          à une chaîne fiable : réception, décodage, vérification de l’équipe,
+          sécurité, puis commande des actionneurs.
         </p>
 
         <p>
-          Ce projet m’a aussi fait progresser dans ma rigueur technique :
-          analyse du cahier des charges, séparation des fonctions, prise en compte
-          des contraintes d’autonomie et de coût, puis vérification du fonctionnement.
-          C’est une réalisation représentative du BUT GEII, car elle relie
-          l’électronique, l’informatique industrielle et la méthode de projet.
+          Il m’a aussi fait progresser sur le lien entre électronique et logiciel.
+          Les choix de broches, les timers PWM, le BEC de l’ESC, les indicateurs
+          lumineux et la coupure moteur en cas de trame invalide montrent qu’un
+          système mobile doit être pensé comme un ensemble cohérent, pas comme
+          une addition de fonctions séparées.
         </p>
       </article>
 

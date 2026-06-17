@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vérifier | Kart à hélice télécommandé</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container">
+
+      <a href="index.html" class="logo">MonPortfolio</a>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="skills.html">Compétences</a></li>
+        <li><a href="projects.html" class="active">Projets</a></li>
+        <li><a href="interests.html">Centres d'intérêt</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="competence-header project-hero">
+    <div class="container">
+
+      <p class="code">Projet KAH — Équipier 8 — Émetteur</p>
+
+      <h1>Vérifier l’émetteur du kart à hélice télécommandé</h1>
+
+      <p>
+        Dossier de vérification centré sur l’essai de répétitivité des trames NEC
+        émises par la carte électronique de l’émetteur.
+      </p>
+
+      <div class="project-meta">
+        <span>C2-4 à C2-11</span>
+        <span>Émetteur</span>
+        <span>Trames NEC</span>
+        <span>Oscilloscope</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- INTRODUCTION -->
+  <section class="section">
+    <div class="container">
+
+      <div class="sport-layout">
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Introduction</p>
+          <h2>Rôle du dossier de vérification</h2>
+
+          <p>
+            Un dossier de vérification a pour objectif de démontrer expérimentalement
+            que le produit développé respecte les exigences définies dans le cahier
+            des charges. Il ne s’agit pas seulement d’observer un fonctionnement,
+            mais de prouver, par des essais structurés, que les résultats obtenus
+            sont conformes aux attendus.
+          </p>
+
+          <p>
+            Dans le cadre du projet KAH, mes parties de vérification concernent
+            l’émetteur. Plusieurs essais ont été réalisés sur cette partie du système :
+            dimensions, logos, traitement NEC, répétitivité, énergie et interrupteur.
+            Cette page présente un exemple complet d’essai de vérification :
+            l’essai de répétitivité.
+          </p>
+        </article>
+
+        <aside class="quote-card project-summary">
+          <span>C2</span>
+          <p>Vérifier expérimentalement que l’émetteur respecte les exigences du cahier des charges.</p>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-4 -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-4 — Présenter un objectif d’essai cohérent avec l’exigence à vérifier</h2>
+        <p>Relier directement l’essai réalisé à une exigence précise du cahier des charges.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">Théorie</span>
+          <h3>Définir un objectif d’essai utile</h3>
+          <p>
+            Un objectif d’essai doit être formulé à partir d’une exigence vérifiable.
+            Il doit préciser ce que l’on cherche à contrôler, avec quelle grandeur
+            mesurable et selon quels critères d’acceptation.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Application</span>
+          <h3>Vérifier la répétitivité des émissions</h3>
+          <p>
+            L’essai de répétitivité a pour objectif de vérifier que l’émetteur respecte
+            les périodes d’émission imposées par le cahier des charges. L’exigence
+            impose une émission toutes les 108 ms lorsque les données changent et
+            une émission toutes les 333 ms lorsque les données restent identiques.
+            Une tolérance de ±10 % est autorisée.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Conclusion</span>
+          <h3>Un objectif lié au cahier des charges</h3>
+          <p>
+            L’objectif de l’essai est donc directement lié à l’exigence du cahier
+            des charges. Il permet de vérifier que le logiciel de l’émetteur applique
+            correctement la logique temporelle attendue.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-5 -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-5 — Justifier le moyen d’essai utilisé</h2>
+        <p>Choisir des équipements adaptés à la grandeur à mesurer.</p>
+      </div>
+
+      <div class="sport-layout">
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Moyens d’essai</p>
+          <h2>Pourquoi utiliser ces équipements ?</h2>
+
+          <p>
+            Pour réaliser cet essai, plusieurs équipements ont été utilisés :
+            un oscilloscope numérique Tektronix, une alimentation stabilisée,
+            une sonde d’oscilloscope, la carte électronique émetteur et des câbles
+            de connexion.
+          </p>
+
+          <ul class="clean-list">
+            <li>L’oscilloscope permet d’observer les trames NEC générées par l’émetteur.</li>
+            <li>Les curseurs de l’oscilloscope permettent de mesurer précisément le temps entre deux émissions successives.</li>
+            <li>L’alimentation stabilisée garantit le bon fonctionnement de la carte durant l’essai.</li>
+            <li>La sonde permet d’accéder directement au signal généré par le microcontrôleur.</li>
+          </ul>
+
+          <p>
+            Le moyen d’essai est donc cohérent avec la grandeur à mesurer :
+            la période d’émission des trames NEC.
+          </p>
+        </article>
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-schema-cablage.jpg" alt="Schéma de câblage pour la mesure des trames NEC">
+          <figcaption>
+            Schéma de câblage utilisé pour la mesure des périodes d’émission des trames NEC.
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-6 -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-6 — Détailler le protocole d’essai</h2>
+        <p>Construire une méthode claire, précise et reproductible.</p>
+      </div>
+
+      <div class="sport-layout">
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Protocole</p>
+          <h2>Une procédure reproductible</h2>
+
+          <p>
+            Un protocole d’essai doit être clair, précis et reproductible. Il doit
+            permettre à une autre personne de refaire l’essai dans les mêmes conditions
+            et d’obtenir des résultats comparables. Le protocole est accompagné
+            d’un schéma de câblage afin de faciliter la reproduction de l’essai.
+          </p>
+
+          <ol class="clean-list">
+            <li>Alimenter la carte électronique.</li>
+            <li>Connecter la sonde d’oscilloscope.</li>
+            <li>Positionner la pointe de sonde à l’entrée de la résistance R5.</li>
+            <li>Connecter la pince de masse au plan de masse.</li>
+            <li>Visualiser les trames NEC.</li>
+            <li>Utiliser les curseurs pour mesurer l’intervalle entre deux trames.</li>
+            <li>Réaliser une mesure lorsque les données restent identiques.</li>
+            <li>Réaliser une mesure lorsque les données changent.</li>
+            <li>Comparer les résultats au cahier des charges.</li>
+          </ol>
+        </article>
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-point-r5.jpg" alt="Point de mesure sur la résistance R5 de la carte émetteur">
+          <figcaption>
+            La pointe de sonde est placée à l’entrée de la résistance R5 afin d’observer directement les impulsions NEC.
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-7 -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-7 — Décrire les attendus en cohérence avec le cahier des charges</h2>
+        <p>Définir les intervalles d’acceptation avant de conclure sur la conformité.</p>
+      </div>
+
+      <article class="card conclusion-card mb-lg">
+        <p>
+          Les valeurs attendues sont directement issues du cahier des charges.
+          Pour les données identiques, la période attendue est de 333 ms avec une
+          tolérance de ±10 %, soit 299,7 ms ≤ T ≤ 366,3 ms. Pour les données nouvelles,
+          la période attendue est de 108 ms avec une tolérance de ±10 %, soit
+          97,2 ms ≤ T ≤ 118,8 ms.
+        </p>
+      </article>
+
+      <div class="card">
+        <div class="verification-table-wrap">
+          <table class="verification-table">
+            <thead>
+              <tr>
+                <th>Grandeur</th>
+                <th>Valeur attendue</th>
+                <th>Tolérance</th>
+                <th>Intervalle attendu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Période d’émission lorsque les données sont identiques</td>
+                <td>333 ms</td>
+                <td>±10 %</td>
+                <td>299,7 ms ≤ T ≤ 366,3 ms</td>
+              </tr>
+              <tr>
+                <td>Période d’émission lorsque les données sont nouvelles</td>
+                <td>108 ms</td>
+                <td>±10 %</td>
+                <td>97,2 ms ≤ T ≤ 118,8 ms</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-8 -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-8 — Présenter correctement le déroulement de l’essai</h2>
+        <p>Montrer précisément comment l’essai a été réalisé sur l’émetteur.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-schema-cablage.jpg" alt="Schéma de câblage de l’essai de répétitivité">
+          <figcaption>
+            Photo 1 : schéma de câblage. Il présente l’alimentation stabilisée, la sonde d’oscilloscope et la carte électronique émetteur utilisée pour observer les trames NEC.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-point-r5.jpg" alt="Zoom sur le point de mesure R5">
+          <figcaption>
+            Photo 2 : zoom sur le point de mesure. La pointe de sonde est placée à l’entrée de la résistance R5, reliée à une broche du microcontrôleur. Sa sortie est reliée à la base du transistor et elle limite le courant entrant dans l’étage de commande.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-montage.jpg" alt="Montage expérimental complet avec alimentation, oscilloscope, carte et sonde">
+          <figcaption>
+            Photo 3 : montage expérimental complet. On distingue l’alimentation, l’oscilloscope, la carte électronique émetteur et la sonde utilisée pour visualiser le signal.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-pcb-arriere.jpg" alt="Vue arrière du PCB de l’émetteur">
+          <figcaption>
+            Photo 4 : vue arrière du PCB. Cette vue permet d’observer le routage, la connexion d’alimentation et le point de masse utilisé pendant l’essai.
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-9 -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-9 — Décrire complètement les résultats obtenus</h2>
+        <p>Présenter les mesures et les comparer aux intervalles attendus.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-338ms.jpg" alt="Mesure oscilloscope de 338 ms pour données identiques">
+          <figcaption>
+            Première mesure : 338 ms. Cette mesure correspond au cas où les données restent identiques.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/kah-verifier-emetteur-110ms.jpg" alt="Mesure oscilloscope de 110 ms pour données nouvelles">
+          <figcaption>
+            Deuxième mesure : 110 ms. Cette mesure correspond au cas où les données changent.
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <div class="card mt-lg">
+        <div class="verification-table-wrap">
+          <table class="verification-table">
+            <thead>
+              <tr>
+                <th>Grandeur</th>
+                <th>Valeur obtenue</th>
+                <th>Intervalle attendu</th>
+                <th>Résultat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Données identiques</td>
+                <td>338 ms</td>
+                <td>299,7 ms ≤ T ≤ 366,3 ms</td>
+                <td><span class="verification-status">Conforme</span></td>
+              </tr>
+              <tr>
+                <td>Données nouvelles</td>
+                <td>110 ms</td>
+                <td>97,2 ms ≤ T ≤ 118,8 ms</td>
+                <td><span class="verification-status">Conforme</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-10 -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-10 — Statuer sur la conformité</h2>
+        <p>Conclure à partir des résultats mesurés.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">Analyse</span>
+          <h3>Résultats dans les intervalles</h3>
+          <p>
+            Les deux mesures réalisées appartiennent aux intervalles autorisés
+            par le cahier des charges : 338 ms est compris entre 299,7 ms et 366,3 ms,
+            et 110 ms est compris entre 97,2 ms et 118,8 ms.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Conclusion</span>
+          <h3>Exigence validée</h3>
+          <p>
+            Les périodes d’émission sont donc conformes. L’exigence de répétitivité
+            de l’émetteur est validée expérimentalement.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2-11 -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2-11 — Décrire les effets d’un dysfonctionnement</h2>
+        <p>Comprendre l’impact d’une période d’émission non conforme.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">Période trop courte</span>
+          <h3>Risque de surcharge</h3>
+          <p>
+            Si la période d’émission était trop courte, l’émetteur enverrait des trames
+            trop fréquemment. Cela pourrait provoquer une surcharge du système et des
+            émissions inutiles.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Période trop longue</span>
+          <h3>Perte de réactivité</h3>
+          <p>
+            Si la période était trop longue, les commandes seraient transmises avec
+            retard. Le kart pourrait alors perdre en réactivité, ce qui dégraderait
+            la qualité du pilotage.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Conclusion</span>
+          <h3>Fiabilité de la communication</h3>
+          <p>
+            L’essai permet donc de garantir un fonctionnement fiable du système
+            de communication infrarouge entre l’émetteur et le kart.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <article class="card conclusion-card">
+        <p class="section-kicker">Conclusion</p>
+        <h2>Importance de la vérification</h2>
+
+        <p>
+          Cet essai a permis de démontrer expérimentalement que l’émetteur respecte
+          les exigences de répétitivité imposées par le cahier des charges. La démarche
+          repose sur un objectif clair, un moyen d’essai justifié, un protocole
+          reproductible, des mesures expérimentales et une conclusion de conformité.
+        </p>
+
+        <p>
+          Les schémas de câblage, le protocole, les mesures à l’oscilloscope et
+          la validation finale sont essentiels dans une démarche d’ingénierie,
+          car ils permettent de prouver que le système développé répond réellement
+          aux exigences attendues.
+        </p>
+
+        <p class="text-center mt-lg">
+          <a href="kart.html" class="btn btn-outline">
+            Retour au projet KAH
+          </a>
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

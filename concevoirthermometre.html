@@ -5,22 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compétences — Concevoir | Thermomètre de bain</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="container">
+
       <a href="index.html" class="logo">MonPortfolio</a>
+
       <button class="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
+
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="about.html">À propos</a></li>
@@ -29,61 +36,87 @@
         <li><a href="interests.html">Centres d’intérêt</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
     </div>
   </nav>
 
   <!-- HEADER -->
-  <header class="competence-header">
+  <header class="competence-header project-hero">
     <div class="container">
+
       <p class="code">Projet — Thermomètre de bain</p>
+
       <h1>Compétences développées — Concevoir</h1>
-      <p>Analyse fonctionnelle, conception électronique, prototypage et fabrication</p>
+
+      <p>
+        C1 — Concevoir la partie GEII d’un système industriel :
+        analyse fonctionnelle, prototypage, simulation et préparation de la fabrication.
+      </p>
+
+      <div class="project-meta">
+        <span>C1a</span>
+        <span>C1b</span>
+        <span>C1c</span>
+      </div>
+
     </div>
   </header>
 
   <!-- INTRODUCTION -->
   <section class="section">
     <div class="container">
-      <div class="card">
-        <h2>Introduction</h2>
+
+      <article class="card conclusion-card">
+        <p class="section-kicker">Compétence C1</p>
+        <h2>Concevoir la partie GEII d’un système industriel</h2>
+
         <p>
-          Cette page présente les compétences de conception développées durant le projet du thermomètre de bain.
+          Cette page présente les compétences de conception développées pendant
+          le projet du thermomètre de bain. L’objectif était de transformer un besoin
+          simple en solution électronique concrète : mesurer la température de l’eau,
+          traiter l’information et afficher l’état de la température à l’aide de LED.
         </p>
-        <ul style="margin:1rem 0 1.5rem 1.5rem;">
-          <li>Bleu : eau froide</li>
-          <li>Vert : température correcte</li>
-          <li>Rouge : eau trop chaude</li>
-        </ul>
-      </div>
+      </article>
+
     </div>
   </section>
 
   <!-- C1A -->
-  <section class="section" style="background:var(--sand-200);">
+  <section class="section section-soft">
     <div class="container">
 
       <div class="section-header">
-        <h2>C1a — Analyse fonctionnelle d’un système simple</h2>
+        <h2>C1a — Produire une analyse fonctionnelle d’un système simple</h2>
+        <p>Identifier les fonctions principales du thermomètre de bain avant la conception technique.</p>
       </div>
 
-      <div class="card mb-md">
-        <p>
-          Analyse du cahier des charges et structuration du système en blocs fonctionnels.
-        </p>
-      </div>
+      <div class="sport-layout">
 
-      <!-- IMAGE FIX PROPRE -->
-      <div class="card">
-        <div style="display:flex; justify-content:center; align-items:center; padding:10px;">
-          <img src="assets/images/C1a.png"
-               alt="Diagramme architecture"
-               style="max-width:100%; height:auto; display:block; border-radius:12px;">
-        </div>
+        <article class="card sport-intro">
+          <p class="section-kicker">Analyse fonctionnelle</p>
+          <h2>Comprendre le système avant de le concevoir</h2>
 
-        <h3>Analyse fonctionnelle du système</h3>
-        <p>
-          Le diagramme représente les blocs acquisition, traitement, action et énergie.
-        </p>
+          <p>
+            Durant ce projet, une analyse fonctionnelle du thermomètre de bain
+            a été réalisée afin d’identifier les différentes fonctions du système.
+            Un synoptique fonctionnel a été établi afin de décrire les blocs
+            d’acquisition, de traitement, d’action et d’énergie nécessaires
+            au fonctionnement du dispositif.
+          </p>
+
+          <p>
+            Cette étape permet de clarifier le rôle de chaque partie du système
+            avant de passer au choix des composants et au dimensionnement du circuit.
+          </p>
+        </article>
+
+        <figure class="card project-cover">
+          <img src="assets/images/C1a.png" alt="Synoptique fonctionnel du thermomètre de bain">
+          <figcaption>
+            Élaboration du synoptique fonctionnel permettant d’identifier les différents blocs nécessaires au fonctionnement du thermomètre de bain.
+          </figcaption>
+        </figure>
+
       </div>
 
     </div>
@@ -94,30 +127,44 @@
     <div class="container">
 
       <div class="section-header">
-        <h2>C1b — Prototype matériel</h2>
+        <h2>C1b — Réaliser un prototype pour des solutions techniques matérielles et/ou logicielles</h2>
+        <p>Étudier, simuler et réaliser une solution technique répondant au cahier des charges.</p>
       </div>
 
-      <div class="cards-grid">
+      <article class="card conclusion-card mb-lg">
+        <p>
+          Cette compétence a été mobilisée lors du choix des composants électroniques,
+          du dimensionnement des différentes parties du circuit et de la simulation
+          du montage avant validation de la solution.
+        </p>
 
-        <div class="card">
-          <div style="display:flex; justify-content:center; padding:10px;">
-            <img src="assets/images/C1b1.png"
-                 alt="Schéma ISIS"
-                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
-          </div>
-          <h3>Schéma ISIS</h3>
-          <p>Dimensionnement des LED et résistances.</p>
-        </div>
+        <p>
+          Les solutions techniques ont été étudiées afin de répondre aux exigences
+          du cahier des charges tout en garantissant la faisabilité du système.
+        </p>
+      </article>
 
-        <div class="card">
-          <div style="display:flex; justify-content:center; padding:10px;">
-            <img src="assets/images/C1b2.png"
-                 alt="Simulation"
-                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
-          </div>
-          <h3>Simulation</h3>
-          <p>Validation du circuit avant fabrication.</p>
-        </div>
+      <div class="cards-grid tdb-c1b-grid">
+
+        <figure class="card project-cover">
+          <img src="assets/images/C1b1.png" alt="Schéma électronique du thermomètre de bain">
+          <figcaption>
+            Le schéma présente le bloc action du thermomètre. Chaque sortie logique
+            correspond à un état de l’eau : chaude, tiède ou froide. Les résistances
+            limitent le courant dans les LED D1, D2 et D3 afin d’obtenir une indication
+            visuelle exploitable sans dépasser les valeurs admissibles.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/C1b2.png" alt="Simulation du circuit du thermomètre de bain">
+          <figcaption>
+            La simulation vérifie le courant obtenu dans chaque branche LED sous
+            alimentation 5 V. Les ampèremètres affichent environ 4,67 mA pour la LED
+            rouge, 3,04 mA pour la LED verte et 0,51 mA pour la LED bleue, ce qui
+            permet de valider les résistances choisies avant de passer au montage.
+          </figcaption>
+        </figure>
 
       </div>
 
@@ -125,32 +172,50 @@
   </section>
 
   <!-- C1C -->
-  <section class="section" style="background:var(--sand-200);">
+  <section class="section section-soft">
     <div class="container">
 
       <div class="section-header">
-        <h2>C1c — Fabrication</h2>
+        <h2>C1c — Rédiger un dossier de fabrication à partir d’un dossier de conception</h2>
+        <p>Préparer les éléments techniques nécessaires à la fabrication du système.</p>
       </div>
+
+      <article class="card conclusion-card mb-lg">
+        <p>
+          Le projet a nécessité la préparation des documents techniques permettant
+          la fabrication du système. La nomenclature des composants, les schémas,
+          les plans et les procédures de réalisation ont été regroupés dans les
+          dossiers associés au projet.
+        </p>
+
+        <p>
+          Cette étape permet de rendre la solution reproductible et compréhensible
+          pour une personne extérieure au projet.
+        </p>
+      </article>
 
       <div class="cards-grid">
 
-        <div class="card">
-          <div style="display:flex; justify-content:center; padding:10px;">
-            <img src="assets/images/C1c1.png"
-                 alt="Schéma final"
-                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
-          </div>
-          <h3>Schéma électrique final</h3>
-        </div>
+        <figure class="card project-cover">
+          <img src="assets/images/C1c1.png" alt="Schéma électrique final du thermomètre de bain">
+          <figcaption>
+            Préparation des documents techniques nécessaires à la fabrication du système.
+          </figcaption>
+        </figure>
 
-        <div class="card">
-          <div style="display:flex; justify-content:center; padding:10px;">
-            <img src="assets/images/routagethr.png"
-                 alt="Routage ARES"
-                 style="max-width:100%; height:auto; display:block; border-radius:12px;">
-          </div>
-          <h3>Routage ARES</h3>
-        </div>
+        <figure class="card project-cover">
+          <img src="assets/images/routagethr.png" alt="Routage du circuit imprimé du thermomètre de bain">
+          <figcaption>
+            Routage du circuit imprimé afin de préparer la réalisation physique du prototype.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/C1c4.png" alt="Extrait de document de fabrication du thermomètre de bain">
+          <figcaption>
+            Regroupement des informations utiles à la fabrication et au contrôle du système.
+          </figcaption>
+        </figure>
 
       </div>
 
@@ -160,9 +225,18 @@
   <!-- RETOUR -->
   <section class="section">
     <div class="container text-center">
-      <a href="thermometre.html" class="btn btn-outline">← Retour</a>
+      <a href="thermometre.html" class="btn btn-outline">
+        Retour au projet
+      </a>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
 

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigger de Schmitt + circuit RC | Portfolio BUT GEII</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container">
+
+      <a href="index.html" class="logo">MonPortfolio</a>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="skills.html">Compétences</a></li>
+        <li><a href="projects.html" class="active">Projets</a></li>
+        <li><a href="interests.html">Centres d'intérêt</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="competence-header project-hero">
+    <div class="container">
+
+      <p class="code">Projet personnel — Électronique analogique</p>
+
+      <h1>Trigger de Schmitt + circuit RC</h1>
+
+      <p>
+        Réalisation autonome d’un oscillateur à amplificateur opérationnel,
+        basé sur un trigger de Schmitt avec hystérésis et un circuit RC.
+      </p>
+
+      <div class="project-meta">
+        <span>Durée : 2h30</span>
+        <span>LM741</span>
+        <span>Circuit RC</span>
+        <span>Oscilloscope</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- IMAGE DE COUVERTURE -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+
+      <figure class="card project-cover">
+        <img src="assets/images/trigger-schmitt-oscillo.jpg" alt="Mesure oscilloscope du trigger de Schmitt avec circuit RC">
+        <figcaption>
+          Mesure à l’oscilloscope : signal carré en sortie de l’AOP et tension du condensateur.
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="section">
+    <div class="container">
+
+      <div class="sport-layout">
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Introduction</p>
+          <h2>Contexte du projet</h2>
+
+          <p>
+            Ce projet est un montage électronique réalisé en autonomie, pour le fun,
+            afin de réutiliser les compétences acquises en TP d’électronique durant
+            l’année. L’idée était de partir d’un principe vu en cours, puis de le
+            reconstruire expérimentalement avec un vrai montage, des mesures et une
+            analyse des signaux.
+          </p>
+
+          <p>
+            Le circuit étudié est un oscillateur à ampli-op utilisant un trigger de
+            Schmitt et un circuit RC. Le montage génère une oscillation auto-entretenue
+            entre deux états de saturation, sans signal d’entrée externe.
+          </p>
+        </article>
+
+        <aside class="quote-card project-summary">
+          <span>2h30</span>
+          <p>Montage personnel court, expérimental et orienté compréhension analogique.</p>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OBJECTIF ET COMPOSANTS -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">01</span>
+          <h2>Objectif du montage</h2>
+
+          <p>
+            L’objectif était de réaliser un oscillateur à amplificateur opérationnel
+            basé sur un trigger de Schmitt avec hystérésis et un circuit RC. La sortie
+            de l’AOP bascule périodiquement entre une saturation positive et une
+            saturation négative.
+          </p>
+
+          <p>
+            Le condensateur se charge et se décharge à travers une résistance. Dès que
+            sa tension atteint les seuils définis par la rétroaction positive, l’AOP
+            change d’état et le cycle recommence.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">02</span>
+          <h2>Composants utilisés</h2>
+
+          <ul class="clean-list">
+            <li>Amplificateur opérationnel LM741.</li>
+            <li>R1 = 100 kΩ.</li>
+            <li>R2 = 47 kΩ.</li>
+            <li>R = 10 kΩ.</li>
+            <li>C = 1 µF.</li>
+            <li>Alimentation symétrique ±15 V.</li>
+            <li>Oscilloscope deux voies.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">03</span>
+          <h2>Grandeurs attendues</h2>
+
+          <p>
+            Avec R = 10 kΩ et C = 1 µF, la constante de temps théorique vaut
+            τ = RC = 10 ms. Les seuils de basculement dépendent du rapport entre
+            R1 et R2, ce qui fixe l’hystérésis du trigger de Schmitt.
+          </p>
+
+          <p>
+            Dans ce montage, le rapport β = R2 / (R1 + R2) vaut environ 0,32.
+            Les seuils haut et bas sont donc proches de ±4,6 V si la saturation
+            de l’AOP est proche de ±14,4 V.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRINCIPE DE FONCTIONNEMENT -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Principe de fonctionnement</h2>
+        <p>Le montage combine une rétroaction positive et une charge-décharge de condensateur.</p>
+      </div>
+
+      <div class="process-list">
+
+        <article class="card process-item">
+          <span>1</span>
+          <div>
+            <h3>Rétroaction positive</h3>
+            <p>
+              R1 relie la sortie de l’AOP à l’entrée non-inverseuse +, tandis que
+              R2 relie cette entrée à la masse. Ces deux résistances forment le pont
+              de rétroaction positive qui définit les seuils haut et bas.
+            </p>
+          </div>
+        </article>
+
+        <article class="card process-item">
+          <span>2</span>
+          <div>
+            <h3>Circuit RC sur l’entrée inverseuse</h3>
+            <p>
+              La résistance R et le condensateur C forment le circuit RC sur l’entrée
+              inverseuse −. La tension du condensateur évolue progressivement, ce qui
+              permet de déclencher les basculements successifs de l’AOP.
+            </p>
+          </div>
+        </article>
+
+        <article class="card process-item">
+          <span>3</span>
+          <div>
+            <h3>Basculement périodique</h3>
+            <p>
+              Quand la sortie est à +Vsat, le condensateur se charge à travers R.
+              Lorsque sa tension atteint le seuil haut, l’AOP bascule à −Vsat.
+              Le condensateur se décharge alors puis se recharge en sens inverse.
+            </p>
+          </div>
+        </article>
+
+        <article class="card process-item">
+          <span>4</span>
+          <div>
+            <h3>Oscillation permanente</h3>
+            <p>
+              Quand la tension du condensateur atteint le seuil bas, l’AOP rebascule
+              vers +Vsat. Ce cycle se répète en continu et produit une oscillation
+              permanente composée d’un signal carré en sortie et d’une tension
+              exponentielle sur le condensateur.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <figure class="card project-cover mt-lg">
+        <img src="assets/images/trigger-schmitt-tableau.jpg" alt="Calculs et dessin du trigger de Schmitt au tableau">
+        <figcaption>
+          Préparation au tableau : seuils de basculement, allure des signaux et principe du montage.
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- SCHEMA ELECTRIQUE -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Schéma électrique</h2>
+        <p>Schéma de référence du montage utilisé pour comprendre les liaisons principales du circuit.</p>
+      </div>
+
+      <figure class="card project-cover">
+        <img src="assets/images/trigger-schmitt-schema-final.jpg" alt="Schéma électrique du trigger de Schmitt avec circuit RC">
+        <figcaption>
+          Schéma du trigger de Schmitt avec rétroaction positive, circuit RC sur l’entrée inverseuse et sortie Vs.
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- REALISATION EXPERIMENTALE -->
+  <section class="section">
+    <div class="container">
+
+      <div class="sport-layout">
+
+        <figure class="card project-cover">
+          <img src="assets/images/trigger-schmitt-montage.jpg" alt="Montage expérimental du trigger de Schmitt avec alimentation et oscilloscope">
+          <figcaption>
+            Montage expérimental avec alimentation symétrique, platine de câblage et oscilloscope deux voies.
+          </figcaption>
+        </figure>
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Réalisation expérimentale</p>
+          <h2>Mise en place du montage</h2>
+
+          <p>
+            Le montage a été câblé autour d’un LM741 alimenté en ±15 V. La sortie de
+            l’AOP a été reliée au pont de rétroaction positive ainsi qu’au circuit RC,
+            afin de créer les conditions nécessaires à l’oscillation.
+          </p>
+
+          <p>
+            L’oscilloscope deux voies a permis d’observer simultanément la sortie de
+            l’AOP et la tension aux bornes du condensateur. Cette double mesure rend
+            le fonctionnement du circuit beaucoup plus lisible.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MESURES OSCILLOSCOPE -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Mesures à l’oscilloscope</h2>
+        <p>Observation des deux signaux principaux du montage.</p>
+      </div>
+
+      <div class="sport-layout">
+
+        <article class="card sport-intro">
+          <p class="section-kicker">Oscilloscope</p>
+          <h2>Deux voies de mesure</h2>
+
+          <ul class="clean-list">
+            <li><strong>Voie 1 :</strong> sortie de l’AOP, signal carré entre les saturations.</li>
+            <li><strong>Voie 2 :</strong> tension aux bornes du condensateur, signal exponentiel montant et descendant.</li>
+            <li><strong>Période mesurée :</strong> environ 13,7 ms d’après la fréquence affichée.</li>
+            <li><strong>Fréquence d’oscillation :</strong> environ 72,8 Hz.</li>
+          </ul>
+
+          <p>
+            Le signal carré montre les basculements de l’AOP. Le signal du condensateur
+            montre quant à lui la charge et la décharge progressives entre les deux
+            seuils de l’hystérésis.
+          </p>
+        </article>
+
+        <figure class="card project-cover">
+          <img src="assets/images/trigger-schmitt-oscillo.jpg" alt="Capture oscilloscope avec signal carré et tension du condensateur">
+          <figcaption>
+            La courbe jaune correspond à la sortie de l’AOP, la courbe bleue à la tension du condensateur.
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ANALYSE DES SIGNAUX -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Analyse des signaux</h2>
+        <p>Comparaison entre le comportement théorique et les mesures expérimentales.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <span class="sport-step">Signal carré</span>
+          <h2>Sortie de l’AOP</h2>
+
+          <p>
+            La sortie du LM741 alterne entre une saturation positive et une saturation
+            négative. Cette alternance forme le signal carré observé à l’oscilloscope.
+            Les fronts correspondent aux instants où la tension du condensateur atteint
+            les seuils de basculement du trigger de Schmitt.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">Signal RC</span>
+          <h2>Tension du condensateur</h2>
+
+          <p>
+            La tension aux bornes du condensateur n’évolue pas de manière linéaire :
+            elle suit une charge et une décharge exponentielles. Cette forme est
+            caractéristique d’un circuit RC soumis à une commutation de tension.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="sport-step">τ = RC</span>
+          <h2>Constante de temps</h2>
+
+          <p>
+            Théoriquement, τ = R × C = 10 kΩ × 1 µF, soit 10 ms. À partir de la période
+            mesurée, on retrouve une valeur expérimentale proche de cette constante,
+            ce qui confirme la cohérence entre la théorie et le montage réel.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETENCES -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Compétences mobilisées</h2>
+        <p>Les notions techniques utilisées pour comprendre, câbler et analyser le montage.</p>
+      </div>
+
+      <div class="cards-grid sport-cards">
+
+        <article class="card">
+          <h3>AOP et hystérésis</h3>
+          <p>
+            Compréhension du fonctionnement d’un amplificateur opérationnel utilisé
+            en comparateur avec rétroaction positive.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Circuit RC</h3>
+          <p>
+            Analyse de la charge et de la décharge d’un condensateur à travers une
+            résistance, avec exploitation de la constante de temps τ.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Mesure expérimentale</h3>
+          <p>
+            Utilisation d’une alimentation symétrique, d’un oscilloscope deux voies
+            et comparaison entre théorie et expérience.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Autonomie</h3>
+          <p>
+            Réalisation du montage en autonomie, choix des mesures pertinentes et
+            interprétation des résultats obtenus.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="section">
+    <div class="container">
+
+      <article class="card conclusion-card">
+        <p class="section-kicker">Conclusion</p>
+        <h2>Ce que ce projet m’a apporté</h2>
+
+        <p>
+          Ce projet m’a permis de consolider des notions importantes d’électronique
+          analogique : fonctionnement d’un AOP, trigger de Schmitt, hystérésis,
+          circuit RC et mesure temporelle. Le fait de le réaliser en autonomie m’a
+          aussi aidé à mieux relier les calculs théoriques aux signaux réellement
+          observés à l’oscilloscope.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

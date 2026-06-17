@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -35,82 +35,76 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero contact-hero">
     <div class="container">
-      <div class="hero-content">
+      <div class="hero-text contact-hero-content">
+        <p class="subtitle">Contact professionnel</p>
+        <h1>Contact</h1>
 
-        <div class="hero-text">
-          <p class="subtitle">Contact</p>
-          <h1>Me contacter</h1>
-
-          <p class="tagline">
-            Vous pouvez me contacter pour échanger sur mon parcours,
-            mes projets ou une opportunité professionnelle.
-          </p>
-        </div>
-
-        <div class="hero-image">
-          <div class="avatar-placeholder">✉️</div>
-        </div>
-
+        <p class="tagline">
+          Étudiant en BUT GEII à Bordeaux, je suis disponible pour échanger au sujet
+          de mon parcours, de projets techniques, d’opportunités de stage ou d’alternance.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="section">
+  <section class="section contact-section">
     <div class="container">
 
-      <div class="contact-grid" style="grid-template-columns: 1fr; gap: 3rem;">
+      <div class="contact-layout">
 
-        <!-- INFORMATIONS -->
-        <div class="card">
-          <h2>Informations</h2>
-
-          <div class="contact-info">
-
-            <div class="contact-item">
-              <div class="contact-item-icon">📍</div>
-              <div>
-                <strong>Localisation</strong>
-                <p>Bordeaux, France</p>
-              </div>
-            </div>
-
-            <div class="contact-item mt-md">
-              <div class="contact-item-icon">🎓</div>
-              <div>
-                <strong>Formation</strong>
-                <p>BUT GEII</p>
-              </div>
-            </div>
-
-            <div class="contact-item mt-md">
-              <div class="contact-item-icon">💼</div>
-              <div>
-                <strong>Objectif</strong>
-                <p>École d’ingénieur en électronique et systèmes embarqués</p>
-              </div>
-            </div>
-
+        <section class="contact-panel" aria-labelledby="contact-info-title">
+          <div class="contact-panel-header">
+            <p class="section-kicker">Repères</p>
+            <h2 id="contact-info-title">Informations</h2>
           </div>
-        </div>
 
-        <!-- RESEAUX -->
-        <div class="card" style="margin-top: 2rem;">
-          <h2>Réseaux sociaux</h2>
+          <div class="contact-info-grid">
+            <div class="contact-info-block">
+              <span>Localisation</span>
+              <p>Bordeaux, France</p>
+            </div>
 
-          <p style="color: var(--text-secondary); margin-top: 1rem;">
-            Mes liens professionnels seront bientôt disponibles ici.
+            <div class="contact-info-block">
+              <span>Formation</span>
+              <p>BUT GEII — Génie Électrique et Informatique Industrielle</p>
+            </div>
+
+            <div class="contact-info-block contact-info-wide">
+              <span>Disponibilités</span>
+              <ul>
+                <li>Recherche d’un stage pour l’année universitaire 2026/2027</li>
+                <li>Recherche d’une alternance pour ma troisième année de BUT, en 2027/2028</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-panel contact-panel-accent" aria-labelledby="contact-methods-title">
+          <div class="contact-panel-header">
+            <p class="section-kicker">Échanger</p>
+            <h2 id="contact-methods-title">Me contacter</h2>
+          </div>
+
+          <p class="contact-intro">
+            Vous pouvez me contacter par email ou consulter mon profil LinkedIn pour échanger
+            au sujet de mon parcours, d’un stage, d’une alternance ou d’un projet technique.
           </p>
 
-          <div class="project-tags mt-md">
-            <span class="tag">LinkedIn</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Email</span>
-          </div>
+          <div class="contact-links" aria-label="Moyens de contact professionnels">
+            <a class="contact-link" href="mailto:adam.ibrhountane@etu.u-bordeaux.fr">
+              <span>Email</span>
+              <strong>adam.ibrhountane@etu.u-bordeaux.fr</strong>
+            </a>
 
-        </div>
+            <a class="contact-link" href="TON_LIEN_LINKEDIN_ICI" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+              <strong>Voir mon profil LinkedIn</strong>
+            </a>
+          </div>
+        </section>
 
       </div>
 

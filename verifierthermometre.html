@@ -5,42 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compétences — Vérifier | Thermomètre de bain</title>
 
-  <!-- Polices -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="../style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="container">
 
-      <a href="../index.html" class="logo">MonPortfolio</a>
+      <a href="index.html" class="logo">MonPortfolio</a>
 
       <button class="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <ul class="nav-links">
-        <li><a href="../index.html">Accueil</a></li>
-        <li><a href="../about.html">À propos</a></li>
-        <li><a href="../skills.html">Compétences</a></li>
-        <li><a href="../projects.html" class="active">Projets</a></li>
-        <li><a href="../interests.html">Centres d’intérêt</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="skills.html">Compétences</a></li>
+        <li><a href="projects.html" class="active">Projets</a></li>
+        <li><a href="interests.html">Centres d’intérêt</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
     </div>
   </nav>
 
-  <!-- EN-TÊTE -->
-  <header class="competence-header">
+  <!-- HEADER -->
+  <header class="competence-header project-hero">
     <div class="container">
 
       <p class="code">Projet — Thermomètre de bain</p>
@@ -48,8 +49,15 @@
       <h1>Compétences développées — Vérifier</h1>
 
       <p>
-        Essais, mesures, conformité et analyse des résultats
+        C2 — Vérifier la partie GEII d’un système industriel :
+        essais, mesures, analyse des résultats et identification des écarts.
       </p>
+
+      <div class="project-meta">
+        <span>C2a</span>
+        <span>C2b</span>
+        <span>C2c</span>
+      </div>
 
     </div>
   </header>
@@ -58,94 +66,60 @@
   <section class="section">
     <div class="container">
 
-      <div class="card">
-
-        <h2>Introduction</h2>
+      <article class="card conclusion-card">
+        <p class="section-kicker">Compétence C2</p>
+        <h2>Vérifier la partie GEII d’un système industriel</h2>
 
         <p>
-          Cette page présente les compétences de vérification développées durant le projet du thermomètre de bain réalisé en BUT GEII.
-          Après la fabrication du prototype, plusieurs essais ont été réalisés afin d’évaluer sa conformité vis-à-vis des exigences du cahier des charges.
+          Cette page présente les compétences de vérification développées durant
+          le projet du thermomètre de bain. Après la conception et la fabrication
+          du prototype, plusieurs essais ont été réalisés afin d’évaluer la conformité
+          du système vis-à-vis des exigences du cahier des charges.
         </p>
 
         <p>
-          Le thermomètre devait indiquer la température de l’eau grâce à trois LEDs :
+          Les vérifications portaient notamment sur le comportement du circuit,
+          les seuils de température, les dimensions mécaniques et la cohérence
+          globale du prototype.
         </p>
-
-        <ul style="margin-left:1.5rem;">
-          <li><strong>Bleu :</strong> eau froide</li>
-          <li><strong>Vert :</strong> température correcte</li>
-          <li><strong>Rouge :</strong> eau trop chaude</li>
-        </ul>
-
-        <p>
-          Les procédures d’essais ont permis de valider l’autonomie, les seuils de température, la conformité mécanique, ainsi que les comportements électriques du prototype.
-        </p>
-
-      </div>
+      </article>
 
     </div>
-
   </section>
 
   <!-- C2A -->
-  <section class="section" style="background:var(--sand-200);">
+  <section class="section section-soft">
     <div class="container">
 
       <div class="section-header">
-        <h2>C2a — Mise en œuvre d’une procédure d’essai</h2>
+        <h2>C2a — Appliquer une procédure d’essai</h2>
+        <p>Mettre en place un protocole de test pour vérifier le comportement du thermomètre.</p>
       </div>
 
-      <div class="card mb-md">
-
+      <article class="card conclusion-card mb-lg">
         <p>
-          Cette compétence a été développée lors des différentes phases de test du thermomètre de bain.
-          L’objectif principal était de vérifier que le prototype respecte les exigences techniques imposées par le cahier des charges.
+          Des essais ont été réalisés afin de vérifier le comportement du thermomètre
+          dans différentes conditions de température. Les moyens d’essais ont été
+          définis puis utilisés selon un protocole précis afin de garantir la cohérence
+          des mesures.
         </p>
+      </article>
 
-        <ul style="margin-left:1.5rem;">
-          <li>autonomie minimale du système</li>
-          <li>dimensions mécaniques</li>
-          <li>comportement électrique</li>
-          <li>conformité globale</li>
-        </ul>
+      <div class="cards-grid">
 
-      </div>
+        <figure class="card project-cover">
+          <img src="assets/images/c2a1.png" alt="Montage d’essai du thermomètre de bain">
+          <figcaption>
+            Mise en œuvre d’une procédure d’essai permettant de vérifier le bon fonctionnement du système.
+          </figcaption>
+        </figure>
 
-      <!-- IMAGE C2a1 -->
-      <div class="card mb-md">
-
-        <div style="background: var(--sand-100); padding: var(--space-sm); border-radius: var(--radius-sm); display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: var(--space-sm);">
-
-          <img
-            src="../assets/images/C2a1.png"
-            alt="Essai d’autonomie du thermomètre"
-            style="max-width: 100%; max-height: 420px; width: auto; height: auto; display: block; object-fit: contain; border-radius: var(--radius-sm); transition: transform 0.4s ease;"
-            onmouseover="this.style.transform='scale(1.02)'"
-            onmouseout="this.style.transform='scale(1)'"
-          >
-
-        </div>
-
-        <h3 class="mt-md">Vérification de l’autonomie</h3>
-
-      </div>
-
-      <!-- IMAGE C2a2 -->
-      <div class="card">
-
-        <div style="background: var(--sand-100); padding: var(--space-sm); border-radius: var(--radius-sm); display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: var(--space-sm);">
-
-          <img
-            src="../assets/images/C2a2.png"
-            alt="Mesure des dimensions du circuit imprimé"
-            style="max-width: 100%; max-height: 420px; width: auto; height: auto; display: block; object-fit: contain; border-radius: var(--radius-sm); transition: transform 0.4s ease;"
-            onmouseover="this.style.transform='scale(1.02)'"
-            onmouseout="this.style.transform='scale(1)'"
-          >
-
-        </div>
-
-        <h3 class="mt-md">Vérification des dimensions mécaniques</h3>
+        <figure class="card project-cover">
+          <img src="assets/images/c2a2.png" alt="Mesure et contrôle mécanique du prototype">
+          <figcaption>
+            Utilisation de moyens d’essais pour contrôler la conformité mécanique et expérimentale du prototype.
+          </figcaption>
+        </figure>
 
       </div>
 
@@ -156,21 +130,80 @@
   <section class="section">
     <div class="container">
 
-      <div class="card">
-
+      <div class="section-header">
         <h2>C2b — Identifier un dysfonctionnement</h2>
+        <p>Comparer les résultats obtenus aux exigences attendues.</p>
+      </div>
 
-        <div style="background: var(--sand-100); padding: var(--space-sm); border-radius: var(--radius-sm); display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: var(--space-sm);">
+      <div class="sport-layout">
 
-          <img
-            src="../assets/images/C2b.png"
-            alt="Non-conformité mécanique"
-            style="max-width: 100%; max-height: 420px; width: auto; height: auto; display: block; object-fit: contain; border-radius: var(--radius-sm); transition: transform 0.4s ease;"
-            onmouseover="this.style.transform='scale(1.02)'"
-            onmouseout="this.style.transform='scale(1)'"
-          >
+        <article class="card sport-intro">
+          <p class="section-kicker">Analyse des écarts</p>
+          <h2>Comprendre les résultats obtenus</h2>
 
-        </div>
+          <p>
+            Les résultats obtenus ont été comparés aux attentes définies dans
+            le cahier des charges. Les éventuels écarts observés ont été analysés
+            afin d’identifier leur origine et de vérifier la conformité du système.
+          </p>
+
+          <p>
+            Cette démarche permet de ne pas seulement constater un résultat,
+            mais de comprendre pourquoi le système est conforme ou non conforme
+            à une exigence donnée.
+          </p>
+        </article>
+
+        <figure class="card project-cover">
+          <img src="assets/images/c2b.png" alt="Résultat expérimental et analyse de conformité">
+          <figcaption>
+            Analyse des résultats obtenus et vérification de leur conformité vis-à-vis des exigences du projet.
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- C2C -->
+  <section class="section section-soft">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>C2c — Décrire les effets d’un dysfonctionnement</h2>
+        <p>Étudier l’impact d’un écart sur le fonctionnement du thermomètre.</p>
+      </div>
+
+      <article class="card conclusion-card mb-lg">
+        <p>
+          Les conséquences des éventuels écarts ou anomalies ont été étudiées afin
+          de comprendre leur impact sur le fonctionnement du thermomètre et sur
+          la qualité des mesures réalisées.
+        </p>
+
+        <p>
+          Cette compétence permet d’aller au-delà de l’identification d’un problème :
+          elle consiste aussi à expliquer ce que ce problème peut provoquer sur
+          l’utilisation du système et sur la fiabilité de l’information affichée.
+        </p>
+      </article>
+
+      <div class="cards-grid">
+
+        <figure class="card project-cover">
+          <img src="assets/images/c2b.png" alt="Observation expérimentale d’un écart de conformité">
+          <figcaption>
+            Étude de l’impact des écarts observés sur les performances du système.
+          </figcaption>
+        </figure>
+
+        <figure class="card project-cover">
+          <img src="assets/images/c2a1.png" alt="Résultats d’essais du thermomètre de bain">
+          <figcaption>
+            Observation expérimentale permettant de relier les résultats de test au comportement réel du prototype.
+          </figcaption>
+        </figure>
 
       </div>
 
@@ -180,18 +213,16 @@
   <!-- RETOUR -->
   <section class="section">
     <div class="container text-center">
-
       <a href="thermometre.html" class="btn btn-outline">
-        ← Retour au projet
+        Retour au projet
       </a>
-
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025–2026 Prénom Nom — Étudiant BUT GEII</p>
+      <p>© 2026 Adam Ibrhountane — Étudiant BUT GEII</p>
     </div>
   </footer>
 

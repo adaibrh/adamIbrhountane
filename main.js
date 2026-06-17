@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // ----- Animation au scroll -----
   const elementsToReveal = document.querySelectorAll(
-    '.hero-text, .hero-image, .section-header, .card, .sport-layout, .exercise-card, .game-card, .book-card, .process-item, .project-cover'
+    '.hero-text, .hero-image, .section-header, .card, .sport-layout, .exercise-card, .game-card, .book-card, .process-item, .project-cover, .interest-clean-item, .game-text-item, .contact-info-block, .contact-link, .skill-topic-tab, .skill-topic-page'
   );
 
   elementsToReveal.forEach((element, index) => {
@@ -64,6 +64,80 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = card.getBoundingClientRect();
       card.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
       card.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
+    });
+  });
+
+  // ----- Blocs interactifs de la page compétences -----
+  const skillToggles = document.querySelectorAll('[data-skill-toggle]');
+  const skillPanels = document.querySelectorAll('[data-skill-panel]');
+
+  const closeSkillPanels = () => {
+    skillPanels.forEach(panel => {
+      panel.classList.remove('is-open');
+      panel.setAttribute('aria-hidden', 'true');
+    });
+
+    skillToggles.forEach(toggle => {
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  skillToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const target = toggle.dataset.skillToggle;
+      const panel = document.querySelector(`[data-skill-panel="${target}"]`);
+      const isOpen = panel && panel.classList.contains('is-open');
+
+      closeSkillPanels();
+
+      if (panel && !isOpen) {
+        panel.classList.add('is-open');
+        panel.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+
+        window.setTimeout(() => {
+          panel.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        }, 120);
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-skill-close]').forEach(button => {
+    button.addEventListener('click', closeSkillPanels);
+  });
+
+  document.querySelectorAll('[data-topic-group]').forEach(group => {
+    const topicButtons = group.querySelectorAll('[data-topic-target]');
+    const topicPages = group.querySelectorAll('[data-topic-page]');
+
+    topicButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.dataset.topicTarget;
+        const targetPage = group.querySelector(`#${targetId}`);
+
+        if (!targetPage) {
+          return;
+        }
+
+        topicButtons.forEach(item => {
+          item.classList.toggle('is-active', item === button);
+          item.setAttribute('aria-expanded', item === button ? 'true' : 'false');
+        });
+
+        topicPages.forEach(page => {
+          const isActive = page === targetPage;
+          page.classList.toggle('is-active', isActive);
+          page.hidden = !isActive;
+        });
+
+        targetPage.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'nearest'
+        });
+      });
     });
   });
 
