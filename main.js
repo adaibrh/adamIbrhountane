@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // ----- Animation au scroll -----
   const elementsToReveal = document.querySelectorAll(
-    '.hero-text, .hero-image, .section-header, .card, .sport-layout, .exercise-card, .game-card, .book-card, .process-item, .project-cover, .interest-clean-item, .game-text-item, .contact-info-block, .contact-link, .skill-topic-tab, .skill-topic-page'
+    '.hero-text, .hero-image, .section-header, .card, .sport-layout, .exercise-card, .game-card, .book-card, .process-item, .project-cover, .interest-clean-item, .game-text-item, .contact-info-block, .contact-link, .skill-topic-tab, .skill-topic-page, .skill-example-card'
   );
 
   elementsToReveal.forEach((element, index) => {
